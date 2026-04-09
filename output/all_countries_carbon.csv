@@ -1,0 +1,605 @@
+iso_code,country,year,electricity_demand_twh,emission_factor,co2_mt,type
+ABW,Aruba,2025,0.54,0.1743,0.09,predicted
+ABW,Aruba,2030,0.4,0.1616,0.06,predicted
+ABW,Aruba,2035,0.28,0.1498,0.04,predicted
+AFG,Afghanistan,2025,8.76,0.2219,1.94,predicted
+AFG,Afghanistan,2030,11.7,0.2057,2.41,predicted
+AFG,Afghanistan,2035,15.04,0.1908,2.87,predicted
+AGO,Angola,2025,19.83,0.2162,4.29,predicted
+AGO,Angola,2030,26.56,0.2004,5.32,predicted
+AGO,Angola,2035,46.59,0.1858,8.66,predicted
+ALB,Albania,2025,8.1,0.1929,1.56,predicted
+ALB,Albania,2030,7.02,0.1788,1.26,predicted
+ALB,Albania,2035,6.26,0.1658,1.04,predicted
+ARE,United Arab Emirates,2025,182.7,0.1588,29.02,predicted
+ARE,United Arab Emirates,2030,197.31,0.1473,29.06,predicted
+ARE,United Arab Emirates,2035,238.27,0.1365,32.54,predicted
+ARG,Argentina,2025,164.44,0.1836,30.19,predicted
+ARG,Argentina,2030,165.86,0.1702,28.23,predicted
+ARG,Argentina,2035,167.49,0.1578,26.43,predicted
+ARM,Armenia,2025,8.06,0.1499,1.21,predicted
+ARM,Armenia,2030,8.49,0.139,1.18,predicted
+ARM,Armenia,2035,9.81,0.1289,1.26,predicted
+ASM,American Samoa,2025,0.03,0.2084,0.01,predicted
+ASM,American Samoa,2030,0.45,0.1932,0.09,predicted
+ASM,American Samoa,2035,0.32,0.1792,0.06,predicted
+ATG,Antigua and Barbuda,2025,0.14,0.2042,0.03,predicted
+ATG,Antigua and Barbuda,2030,0.02,0.1894,0.0,predicted
+ATG,Antigua and Barbuda,2035,0.14,0.1756,0.02,predicted
+AUS,Australia,2025,291.07,0.234,68.12,predicted
+AUS,Australia,2030,325.14,0.217,70.55,predicted
+AUS,Australia,2035,338.02,0.2012,68.01,predicted
+AUT,Austria,2030,83.84,0.1407,11.8,predicted
+AUT,Austria,2035,88.7,0.1305,11.57,predicted
+AZE,Azerbaijan,2025,27.4,0.1911,5.24,predicted
+AZE,Azerbaijan,2030,28.48,0.1772,5.05,predicted
+AZE,Azerbaijan,2035,28.83,0.1643,4.74,predicted
+BDI,Burundi,2025,0.31,0.2176,0.07,predicted
+BDI,Burundi,2030,0.63,0.2018,0.13,predicted
+BDI,Burundi,2035,1.3,0.1871,0.24,predicted
+BEL,Belgium,2030,88.91,0.1187,10.55,predicted
+BEL,Belgium,2035,88.4,0.11,9.73,predicted
+BEN,Benin,2025,2.14,0.1996,0.43,predicted
+BEN,Benin,2030,3.79,0.185,0.7,predicted
+BEN,Benin,2035,5.71,0.1716,0.98,predicted
+BFA,Burkina Faso,2025,4.27,0.2702,1.15,predicted
+BFA,Burkina Faso,2030,7.49,0.2505,1.88,predicted
+BFA,Burkina Faso,2035,11.37,0.2323,2.64,predicted
+BGD,Bangladesh,2025,132.12,0.1963,25.93,predicted
+BGD,Bangladesh,2030,185.23,0.182,33.71,predicted
+BGD,Bangladesh,2035,264.64,0.1687,44.66,predicted
+BGR,Bulgaria,2030,36.47,0.1726,6.3,predicted
+BGR,Bulgaria,2035,36.37,0.1601,5.82,predicted
+BHR,Bahrain,2025,38.43,0.1522,5.85,predicted
+BHR,Bahrain,2030,45.17,0.1411,6.38,predicted
+BHR,Bahrain,2035,54.22,0.1309,7.1,predicted
+BHS,Bahamas,2025,1.11,0.2101,0.23,predicted
+BHS,Bahamas,2030,1.42,0.1948,0.28,predicted
+BHS,Bahamas,2035,1.72,0.1806,0.31,predicted
+BIH,Bosnia and Herzegovina,2030,13.8,0.2601,3.59,predicted
+BIH,Bosnia and Herzegovina,2035,13.59,0.2411,3.28,predicted
+BLR,Belarus,2025,48.91,0.1888,9.23,predicted
+BLR,Belarus,2030,54.6,0.1751,9.56,predicted
+BLR,Belarus,2035,57.95,0.1623,9.41,predicted
+BLZ,Belize,2025,0.72,0.1852,0.13,predicted
+BLZ,Belize,2030,1.07,0.1717,0.18,predicted
+BLZ,Belize,2035,0.89,0.1592,0.14,predicted
+BMU,Bermuda,2025,0.86,0.2169,0.19,predicted
+BMU,Bermuda,2030,0.84,0.2012,0.17,predicted
+BMU,Bermuda,2035,0.01,0.1865,0.0,predicted
+BOL,Bolivia,2025,13.2,0.2249,2.97,predicted
+BOL,Bolivia,2030,17.62,0.2085,3.67,predicted
+BOL,Bolivia,2035,21.64,0.1934,4.18,predicted
+BRA,Brazil,2025,701.16,0.1275,89.39,predicted
+BRA,Brazil,2030,641.04,0.1182,75.78,predicted
+BRA,Brazil,2035,646.03,0.1096,70.81,predicted
+BRB,Barbados,2025,0.84,0.213,0.18,predicted
+BRB,Barbados,2030,0.82,0.1975,0.16,predicted
+BRB,Barbados,2035,1.03,0.1831,0.19,predicted
+BRN,Brunei,2025,4.69,0.2008,0.94,predicted
+BRN,Brunei,2030,4.51,0.1862,0.84,predicted
+BRN,Brunei,2035,3.85,0.1727,0.66,predicted
+BTN,Bhutan,2025,13.74,0.1191,1.64,predicted
+BTN,Bhutan,2030,24.51,0.1105,2.71,predicted
+BTN,Bhutan,2035,56.32,0.1024,5.77,predicted
+BWA,Botswana,2025,4.63,0.2813,1.3,predicted
+BWA,Botswana,2030,4.49,0.2608,1.17,predicted
+BWA,Botswana,2035,4.61,0.2418,1.11,predicted
+CAF,Central African Republic,2025,0.08,0.2462,0.02,predicted
+CAF,Central African Republic,2030,0.48,0.2283,0.11,predicted
+CAF,Central African Republic,2035,0.24,0.2117,0.05,predicted
+CAN,Canada,2025,634.87,0.1352,85.87,predicted
+CAN,Canada,2030,624.12,0.1254,78.27,predicted
+CAN,Canada,2035,626.91,0.1163,72.9,predicted
+CHE,Switzerland,2030,63.71,0.0999,6.36,predicted
+CHE,Switzerland,2035,63.55,0.0926,5.88,predicted
+CHL,Chile,2025,91.69,0.17,15.59,predicted
+CHL,Chile,2030,105.1,0.1576,16.56,predicted
+CHL,Chile,2035,122.0,0.1461,17.83,predicted
+CHN,China,2025,7435.43,0.2537,1886.47,predicted
+CHN,China,2030,6120.86,0.2352,1439.92,predicted
+CHN,China,2035,6193.46,0.2181,1350.95,predicted
+CIV,Cote d'Ivoire,2025,11.92,0.1847,2.2,predicted
+CIV,Cote d'Ivoire,2030,17.56,0.1713,3.01,predicted
+CIV,Cote d'Ivoire,2035,22.13,0.1588,3.51,predicted
+CMR,Cameroon,2025,10.33,0.2585,2.67,predicted
+CMR,Cameroon,2030,13.84,0.2397,3.32,predicted
+CMR,Cameroon,2035,16.72,0.2222,3.72,predicted
+COD,Democratic Republic of Congo,2025,18.6,0.1431,2.66,predicted
+COD,Democratic Republic of Congo,2030,23.73,0.1327,3.15,predicted
+COD,Democratic Republic of Congo,2035,31.91,0.123,3.93,predicted
+COG,Congo,2025,5.7,0.5861,3.34,predicted
+COG,Congo,2030,7.55,0.5435,4.1,predicted
+COG,Congo,2035,11.2,0.5039,5.64,predicted
+COK,Cook Islands,2025,0.27,0.181,0.05,predicted
+COK,Cook Islands,2030,0.13,0.1679,0.02,predicted
+COK,Cook Islands,2035,0.01,0.1556,0.0,predicted
+COL,Colombia,2025,95.77,0.1589,15.22,predicted
+COL,Colombia,2030,126.71,0.1474,18.67,predicted
+COL,Colombia,2035,152.09,0.1366,20.78,predicted
+COM,Comoros,2025,0.03,0.3086,0.01,predicted
+COM,Comoros,2030,0.33,0.2862,0.09,predicted
+COM,Comoros,2035,0.61,0.2653,0.16,predicted
+CPV,Cape Verde,2025,0.35,0.1864,0.07,predicted
+CPV,Cape Verde,2030,0.01,0.1728,0.0,predicted
+CPV,Cape Verde,2035,0.38,0.1602,0.06,predicted
+CRI,Costa Rica,2025,12.53,0.1667,2.09,predicted
+CRI,Costa Rica,2030,15.51,0.1546,2.4,predicted
+CRI,Costa Rica,2035,18.22,0.1433,2.61,predicted
+CUB,Cuba,2025,17.38,0.2585,4.49,predicted
+CUB,Cuba,2030,18.93,0.2397,4.54,predicted
+CUB,Cuba,2035,18.21,0.2222,4.05,predicted
+CYM,Cayman Islands,2025,0.33,0.2084,0.07,predicted
+CYM,Cayman Islands,2030,0.01,0.1932,0.0,predicted
+CYM,Cayman Islands,2035,0.01,0.1792,0.0,predicted
+CYP,Cyprus,2030,4.78,0.2066,0.99,predicted
+CYP,Cyprus,2035,5.02,0.1915,0.96,predicted
+CZE,Czechia,2030,70.08,0.1872,13.12,predicted
+CZE,Czechia,2035,69.75,0.1736,12.11,predicted
+DEU,Germany,2030,520.86,0.1696,88.33,predicted
+DEU,Germany,2035,509.16,0.1572,80.06,predicted
+DJI,Djibouti,2025,0.51,0.1538,0.08,predicted
+DJI,Djibouti,2030,1.19,0.1426,0.17,predicted
+DJI,Djibouti,2035,1.65,0.1322,0.22,predicted
+DMA,Dominica,2025,0.01,0.2229,0.0,predicted
+DMA,Dominica,2030,0.41,0.2066,0.08,predicted
+DMA,Dominica,2035,0.4,0.1916,0.08,predicted
+DNK,Denmark,2030,44.71,0.1333,5.96,predicted
+DNK,Denmark,2035,47.39,0.1236,5.86,predicted
+DOM,Dominican Republic,2025,27.96,0.2347,6.56,predicted
+DOM,Dominican Republic,2030,34.68,0.2176,7.55,predicted
+DOM,Dominican Republic,2035,43.0,0.2018,8.68,predicted
+DZA,Algeria,2025,103.98,0.2531,26.32,predicted
+DZA,Algeria,2030,136.5,0.2347,32.04,predicted
+DZA,Algeria,2035,182.57,0.2176,39.73,predicted
+ECU,Ecuador,2025,33.85,0.1804,6.11,predicted
+ECU,Ecuador,2030,39.43,0.1672,6.59,predicted
+ECU,Ecuador,2035,47.34,0.1551,7.34,predicted
+EGY,Egypt,2025,246.92,0.2283,56.37,predicted
+EGY,Egypt,2030,283.13,0.2117,59.93,predicted
+EGY,Egypt,2035,324.73,0.1963,63.74,predicted
+ERI,Eritrea,2025,0.13,0.2406,0.03,predicted
+ERI,Eritrea,2030,0.18,0.2231,0.04,predicted
+ERI,Eritrea,2035,0.01,0.2069,0.0,predicted
+ESH,Western Sahara,2025,0.71,0.2084,0.15,predicted
+ESH,Western Sahara,2030,0.35,0.1932,0.07,predicted
+ESH,Western Sahara,2035,0.14,0.1792,0.03,predicted
+ESP,Spain,2030,279.16,0.1333,37.22,predicted
+ESP,Spain,2035,279.36,0.1236,34.53,predicted
+EST,Estonia,2030,9.34,0.1564,1.46,predicted
+EST,Estonia,2035,8.79,0.1451,1.28,predicted
+ETH,Ethiopia,2025,18.79,0.2156,4.05,predicted
+ETH,Ethiopia,2030,24.91,0.1999,4.98,predicted
+ETH,Ethiopia,2035,33.41,0.1853,6.19,predicted
+FIN,Finland,2030,88.01,0.1036,9.12,predicted
+FIN,Finland,2035,88.34,0.0961,8.49,predicted
+FJI,Fiji,2025,0.98,0.2097,0.21,predicted
+FJI,Fiji,2030,0.62,0.1944,0.12,predicted
+FJI,Fiji,2035,0.95,0.1803,0.17,predicted
+FLK,Falkland Islands,2025,0.27,0.2084,0.06,predicted
+FLK,Falkland Islands,2030,0.01,0.1932,0.0,predicted
+FLK,Falkland Islands,2035,0.15,0.1792,0.03,predicted
+FRA,France,2030,481.94,0.106,51.07,predicted
+FRA,France,2035,478.87,0.0983,47.05,predicted
+FRO,Faroe Islands,2025,0.69,0.2217,0.15,predicted
+FRO,Faroe Islands,2030,1.09,0.2056,0.22,predicted
+FRO,Faroe Islands,2035,0.38,0.1906,0.07,predicted
+GAB,Gabon,2025,3.96,0.3415,1.35,predicted
+GAB,Gabon,2030,5.22,0.3167,1.65,predicted
+GAB,Gabon,2035,5.8,0.2936,1.7,predicted
+GBR,United Kingdom,2030,313.03,0.1471,46.04,predicted
+GBR,United Kingdom,2035,310.53,0.1364,42.35,predicted
+GEO,Georgia,2025,14.94,0.175,2.61,predicted
+GEO,Georgia,2030,18.43,0.1623,2.99,predicted
+GEO,Georgia,2035,21.22,0.1505,3.19,predicted
+GHA,Ghana,2025,23.99,0.1944,4.66,predicted
+GHA,Ghana,2030,29.47,0.1803,5.31,predicted
+GHA,Ghana,2035,38.82,0.1672,6.49,predicted
+GIB,Gibraltar,2025,0.28,0.2084,0.06,predicted
+GIB,Gibraltar,2030,0.1,0.1932,0.02,predicted
+GIB,Gibraltar,2035,0.01,0.1792,0.0,predicted
+GIN,Guinea,2025,4.81,0.1911,0.92,predicted
+GIN,Guinea,2030,8.48,0.1772,1.5,predicted
+GIN,Guinea,2035,16.91,0.1643,2.78,predicted
+GLP,Guadeloupe,2025,1.54,0.2084,0.32,predicted
+GLP,Guadeloupe,2030,1.45,0.1932,0.28,predicted
+GLP,Guadeloupe,2035,1.33,0.1792,0.24,predicted
+GMB,Gambia,2025,0.38,0.3585,0.14,predicted
+GMB,Gambia,2030,0.42,0.3324,0.14,predicted
+GMB,Gambia,2035,0.72,0.3082,0.22,predicted
+GNB,Guinea-Bissau,2025,0.01,0.2111,0.0,predicted
+GNB,Guinea-Bissau,2030,0.53,0.1958,0.1,predicted
+GNB,Guinea-Bissau,2035,1.01,0.1815,0.18,predicted
+GNQ,Equatorial Guinea,2025,1.97,0.253,0.5,predicted
+GNQ,Equatorial Guinea,2030,2.91,0.2346,0.68,predicted
+GNQ,Equatorial Guinea,2035,4.15,0.2175,0.9,predicted
+GRC,Greece,2030,55.75,0.1709,9.53,predicted
+GRC,Greece,2035,54.93,0.1585,8.71,predicted
+GRD,Grenada,2025,0.41,0.2222,0.09,predicted
+GRD,Grenada,2030,0.18,0.206,0.04,predicted
+GRD,Grenada,2035,0.05,0.191,0.01,predicted
+GRL,Greenland,2025,0.93,0.2084,0.19,predicted
+GRL,Greenland,2030,1.09,0.1932,0.21,predicted
+GRL,Greenland,2035,0.79,0.1792,0.14,predicted
+GTM,Guatemala,2025,15.8,0.196,3.1,predicted
+GTM,Guatemala,2030,25.27,0.1817,4.59,predicted
+GTM,Guatemala,2035,36.12,0.1685,6.09,predicted
+GUF,French Guiana,2025,0.6,0.2084,0.13,predicted
+GUF,French Guiana,2030,0.22,0.1932,0.04,predicted
+GUF,French Guiana,2035,0.06,0.1792,0.01,predicted
+GUM,Guam,2025,2.0,0.2084,0.42,predicted
+GUM,Guam,2030,1.89,0.1932,0.37,predicted
+GUM,Guam,2035,1.89,0.1792,0.34,predicted
+GUY,Guyana,2025,1.57,0.3238,0.51,predicted
+GUY,Guyana,2030,1.92,0.3002,0.58,predicted
+GUY,Guyana,2035,2.11,0.2783,0.59,predicted
+HKG,Hong Kong,2025,50.38,0.1275,6.42,predicted
+HKG,Hong Kong,2030,51.63,0.1182,6.1,predicted
+HKG,Hong Kong,2035,53.43,0.1096,5.86,predicted
+HND,Honduras,2025,12.33,0.219,2.7,predicted
+HND,Honduras,2030,14.6,0.203,2.96,predicted
+HND,Honduras,2035,17.29,0.1883,3.26,predicted
+HRV,Croatia,2030,20.96,0.1639,3.44,predicted
+HRV,Croatia,2035,21.17,0.152,3.22,predicted
+HTI,Haiti,2025,1.42,0.2581,0.37,predicted
+HTI,Haiti,2030,2.33,0.2393,0.56,predicted
+HTI,Haiti,2035,2.87,0.2219,0.64,predicted
+HUN,Hungary,2030,52.69,0.1532,8.07,predicted
+HUN,Hungary,2035,55.41,0.1421,7.87,predicted
+IDN,Indonesia,2025,390.69,0.276,107.84,predicted
+IDN,Indonesia,2030,570.87,0.2559,146.11,predicted
+IDN,Indonesia,2035,785.46,0.2373,186.4,predicted
+IND,India,2025,3365.52,0.2721,915.59,predicted
+IND,India,2030,4511.29,0.2523,1137.97,predicted
+IND,India,2035,5524.18,0.2339,1292.05,predicted
+IRL,Ireland,2030,44.67,0.1778,7.94,predicted
+IRL,Ireland,2035,50.14,0.1648,8.26,predicted
+IRN,Iran,2025,396.18,0.2151,85.22,predicted
+IRN,Iran,2030,399.85,0.1994,79.75,predicted
+IRN,Iran,2035,445.08,0.1849,82.31,predicted
+IRQ,Iraq,2025,171.58,0.2962,50.82,predicted
+IRQ,Iraq,2030,240.91,0.2747,66.17,predicted
+IRQ,Iraq,2035,339.75,0.2547,86.52,predicted
+ISL,Iceland,2025,20.58,0.0548,1.13,predicted
+ISL,Iceland,2030,20.69,0.0508,1.05,predicted
+ISL,Iceland,2035,20.97,0.0471,0.99,predicted
+ISR,Israel,2025,71.73,0.1945,13.95,predicted
+ISR,Israel,2030,77.99,0.1804,14.07,predicted
+ISR,Israel,2035,86.88,0.1672,14.53,predicted
+ITA,Italy,2030,313.16,0.1681,52.65,predicted
+ITA,Italy,2035,311.37,0.1559,48.54,predicted
+JAM,Jamaica,2025,4.35,0.2252,0.98,predicted
+JAM,Jamaica,2030,4.39,0.2088,0.92,predicted
+JAM,Jamaica,2035,4.4,0.1936,0.85,predicted
+JOR,Jordan,2025,23.72,0.2039,4.84,predicted
+JOR,Jordan,2030,23.65,0.1891,4.47,predicted
+JOR,Jordan,2035,28.54,0.1753,5.0,predicted
+JPN,Japan,2025,999.99,0.2031,203.07,predicted
+JPN,Japan,2030,981.82,0.1883,184.87,predicted
+JPN,Japan,2035,981.59,0.1746,171.37,predicted
+KAZ,Kazakhstan,2025,123.68,0.334,41.3,predicted
+KAZ,Kazakhstan,2030,141.26,0.3096,43.74,predicted
+KAZ,Kazakhstan,2035,160.06,0.2871,45.95,predicted
+KEN,Kenya,2025,18.55,0.2262,4.2,predicted
+KEN,Kenya,2030,35.66,0.2097,7.48,predicted
+KEN,Kenya,2035,52.26,0.1944,10.16,predicted
+KGZ,Kyrgyzstan,2025,21.16,0.2026,4.29,predicted
+KGZ,Kyrgyzstan,2030,21.06,0.1878,3.96,predicted
+KGZ,Kyrgyzstan,2035,22.6,0.1742,3.94,predicted
+KHM,Cambodia,2025,22.14,0.3018,6.68,predicted
+KHM,Cambodia,2030,33.22,0.2799,9.3,predicted
+KHM,Cambodia,2035,59.68,0.2595,15.49,predicted
+KIR,Kiribati,2025,0.06,0.2128,0.01,predicted
+KIR,Kiribati,2030,0.36,0.1973,0.07,predicted
+KIR,Kiribati,2035,0.47,0.1829,0.09,predicted
+KNA,Saint Kitts and Nevis,2025,0.04,0.2195,0.01,predicted
+KNA,Saint Kitts and Nevis,2030,0.01,0.2035,0.0,predicted
+KNA,Saint Kitts and Nevis,2035,0.01,0.1887,0.0,predicted
+KOR,South Korea,2025,640.34,0.1679,107.54,predicted
+KOR,South Korea,2030,643.71,0.1557,100.24,predicted
+KOR,South Korea,2035,657.29,0.1444,94.9,predicted
+KWT,Kuwait,2025,89.59,0.2195,19.66,predicted
+KWT,Kuwait,2030,92.95,0.2035,18.91,predicted
+KWT,Kuwait,2035,99.28,0.1887,18.73,predicted
+LAO,Laos,2025,17.24,0.2894,4.99,predicted
+LAO,Laos,2030,25.68,0.2684,6.89,predicted
+LAO,Laos,2035,41.81,0.2488,10.4,predicted
+LBN,Lebanon,2025,6.34,0.2231,1.41,predicted
+LBN,Lebanon,2030,6.07,0.2068,1.26,predicted
+LBN,Lebanon,2035,4.86,0.1918,0.93,predicted
+LBR,Liberia,2025,0.68,0.2725,0.19,predicted
+LBR,Liberia,2030,1.36,0.2527,0.34,predicted
+LBR,Liberia,2035,2.11,0.2343,0.49,predicted
+LBY,Libya,2025,36.52,0.2688,9.82,predicted
+LBY,Libya,2030,36.34,0.2493,9.06,predicted
+LBY,Libya,2035,36.77,0.2311,8.5,predicted
+LCA,Saint Lucia,2025,0.15,0.1974,0.03,predicted
+LCA,Saint Lucia,2030,0.06,0.1831,0.01,predicted
+LCA,Saint Lucia,2035,0.28,0.1697,0.05,predicted
+LKA,Sri Lanka,2025,20.12,0.1848,3.72,predicted
+LKA,Sri Lanka,2030,25.05,0.1714,4.29,predicted
+LKA,Sri Lanka,2035,33.13,0.1589,5.26,predicted
+LSO,Lesotho,2025,0.64,0.5456,0.35,predicted
+LSO,Lesotho,2030,1.15,0.5058,0.58,predicted
+LSO,Lesotho,2035,1.01,0.469,0.47,predicted
+LTU,Lithuania,2030,11.9,0.1732,2.06,predicted
+LTU,Lithuania,2035,11.84,0.1606,1.9,predicted
+LUX,Luxembourg,2030,6.8,0.1751,1.19,predicted
+LUX,Luxembourg,2035,5.95,0.1623,0.97,predicted
+LVA,Latvia,2030,6.86,0.151,1.04,predicted
+LVA,Latvia,2035,6.93,0.14,0.97,predicted
+MAC,Macao,2025,4.05,0.0797,0.32,predicted
+MAC,Macao,2030,4.47,0.0739,0.33,predicted
+MAC,Macao,2035,4.38,0.0685,0.3,predicted
+MAR,Morocco,2025,48.51,0.2529,12.27,predicted
+MAR,Morocco,2030,56.78,0.2345,13.32,predicted
+MAR,Morocco,2035,62.48,0.2175,13.59,predicted
+MDA,Moldova,2025,6.47,0.131,0.85,predicted
+MDA,Moldova,2030,6.21,0.1214,0.75,predicted
+MDA,Moldova,2035,6.31,0.1126,0.71,predicted
+MDG,Madagascar,2025,4.85,0.2656,1.29,predicted
+MDG,Madagascar,2030,8.16,0.2463,2.01,predicted
+MDG,Madagascar,2035,11.52,0.2284,2.63,predicted
+MDV,Maldives,2025,0.62,0.2967,0.18,predicted
+MDV,Maldives,2030,0.41,0.2751,0.11,predicted
+MDV,Maldives,2035,0.31,0.2551,0.08,predicted
+MEX,Mexico,2025,377.44,0.1969,74.3,predicted
+MEX,Mexico,2030,453.41,0.1825,82.76,predicted
+MEX,Mexico,2035,531.5,0.1692,89.95,predicted
+MKD,North Macedonia,2030,6.7,0.2132,1.43,predicted
+MKD,North Macedonia,2035,6.74,0.1977,1.33,predicted
+MLI,Mali,2025,5.7,0.2314,1.32,predicted
+MLI,Mali,2030,8.63,0.2146,1.85,predicted
+MLI,Mali,2035,12.1,0.1989,2.41,predicted
+MLT,Malta,2030,3.85,0.045,0.17,predicted
+MLT,Malta,2035,4.51,0.0417,0.19,predicted
+MMR,Myanmar,2025,25.31,0.2169,5.49,predicted
+MMR,Myanmar,2030,33.01,0.2012,6.64,predicted
+MMR,Myanmar,2035,43.96,0.1865,8.2,predicted
+MNE,Montenegro,2030,4.5,0.1963,0.88,predicted
+MNE,Montenegro,2035,4.59,0.182,0.84,predicted
+MNG,Mongolia,2025,10.44,0.6674,6.97,predicted
+MNG,Mongolia,2030,14.23,0.6188,8.81,predicted
+MNG,Mongolia,2035,20.3,0.5738,11.65,predicted
+MOZ,Mozambique,2025,16.52,0.147,2.43,predicted
+MOZ,Mozambique,2030,17.69,0.1363,2.41,predicted
+MOZ,Mozambique,2035,17.9,0.1264,2.26,predicted
+MRT,Mauritania,2025,2.78,0.2467,0.69,predicted
+MRT,Mauritania,2030,4.12,0.2288,0.94,predicted
+MRT,Mauritania,2035,5.65,0.2121,1.2,predicted
+MSR,Montserrat,2025,0.28,0.2191,0.06,predicted
+MSR,Montserrat,2030,0.11,0.2031,0.02,predicted
+MSR,Montserrat,2035,0.01,0.1883,0.0,predicted
+MTQ,Martinique,2025,1.66,0.2084,0.35,predicted
+MTQ,Martinique,2030,1.91,0.1932,0.37,predicted
+MTQ,Martinique,2035,1.77,0.1792,0.32,predicted
+MUS,Mauritius,2025,3.54,0.1814,0.64,predicted
+MUS,Mauritius,2030,4.07,0.1682,0.68,predicted
+MUS,Mauritius,2035,4.53,0.156,0.71,predicted
+MWI,Malawi,2025,2.35,0.188,0.44,predicted
+MWI,Malawi,2030,3.67,0.1743,0.64,predicted
+MWI,Malawi,2035,4.64,0.1617,0.75,predicted
+MYS,Malaysia,2025,205.05,0.209,42.85,predicted
+MYS,Malaysia,2030,247.24,0.1938,47.91,predicted
+MYS,Malaysia,2035,283.37,0.1797,50.91,predicted
+NAM,Namibia,2025,4.45,0.1832,0.82,predicted
+NAM,Namibia,2030,4.42,0.1698,0.75,predicted
+NAM,Namibia,2035,4.48,0.1575,0.71,predicted
+NCL,New Caledonia,2025,3.52,0.2644,0.93,predicted
+NCL,New Caledonia,2030,3.97,0.2451,0.97,predicted
+NCL,New Caledonia,2035,4.61,0.2273,1.05,predicted
+NER,Niger,2025,2.83,0.2348,0.66,predicted
+NER,Niger,2030,4.89,0.2177,1.06,predicted
+NER,Niger,2035,7.48,0.2019,1.51,predicted
+NGA,Nigeria,2025,42.12,0.2513,10.58,predicted
+NGA,Nigeria,2030,111.07,0.233,25.88,predicted
+NGA,Nigeria,2035,174.65,0.216,37.73,predicted
+NIC,Nicaragua,2025,5.31,0.2403,1.28,predicted
+NIC,Nicaragua,2030,5.44,0.2228,1.21,predicted
+NIC,Nicaragua,2035,5.6,0.2066,1.16,predicted
+NLD,Netherlands,2030,119.57,0.1233,14.75,predicted
+NLD,Netherlands,2035,119.5,0.1144,13.67,predicted
+NOR,Norway,2030,134.53,0.0677,9.1,predicted
+NOR,Norway,2035,135.53,0.0627,8.5,predicted
+NPL,Nepal,2025,13.77,0.3186,4.39,predicted
+NPL,Nepal,2030,19.85,0.2954,5.86,predicted
+NPL,Nepal,2035,29.4,0.2739,8.05,predicted
+NRU,Nauru,2025,0.01,0.166,0.0,predicted
+NRU,Nauru,2030,0.22,0.1539,0.03,predicted
+NRU,Nauru,2035,0.34,0.1427,0.05,predicted
+NZL,New Zealand,2025,44.85,0.1353,6.07,predicted
+NZL,New Zealand,2030,44.79,0.1255,5.62,predicted
+NZL,New Zealand,2035,44.93,0.1164,5.23,predicted
+OMN,Oman,2025,43.87,0.1836,8.05,predicted
+OMN,Oman,2030,52.46,0.1702,8.93,predicted
+OMN,Oman,2035,62.76,0.1578,9.9,predicted
+PAK,Pakistan,2025,196.96,0.2083,41.03,predicted
+PAK,Pakistan,2030,275.31,0.1931,53.18,predicted
+PAK,Pakistan,2035,368.82,0.1791,66.05,predicted
+PAN,Panama,2025,14.33,0.1027,1.47,predicted
+PAN,Panama,2030,18.44,0.0953,1.76,predicted
+PAN,Panama,2035,22.26,0.0883,1.97,predicted
+PER,Peru,2025,66.09,0.1773,11.72,predicted
+PER,Peru,2030,80.11,0.1644,13.17,predicted
+PER,Peru,2035,98.35,0.1524,14.99,predicted
+PHL,Philippines,2025,132.14,0.2511,33.18,predicted
+PHL,Philippines,2030,164.75,0.2328,38.36,predicted
+PHL,Philippines,2035,215.14,0.2159,46.44,predicted
+PNG,Papua New Guinea,2025,4.94,0.3432,1.7,predicted
+PNG,Papua New Guinea,2030,5.04,0.3182,1.6,predicted
+PNG,Papua New Guinea,2035,5.58,0.295,1.65,predicted
+POL,Poland,2030,184.19,0.2373,43.71,predicted
+POL,Poland,2035,199.2,0.22,43.83,predicted
+PRI,Puerto Rico,2025,17.87,0.2084,3.72,predicted
+PRI,Puerto Rico,2030,17.32,0.1932,3.35,predicted
+PRI,Puerto Rico,2035,16.97,0.1792,3.04,predicted
+PRK,North Korea,2025,29.55,0.2988,8.83,predicted
+PRK,North Korea,2030,34.62,0.2771,9.59,predicted
+PRK,North Korea,2035,38.87,0.2569,9.99,predicted
+PRT,Portugal,2030,61.48,0.1383,8.5,predicted
+PRT,Portugal,2035,63.48,0.1282,8.14,predicted
+PRY,Paraguay,2025,21.5,0.1459,3.14,predicted
+PRY,Paraguay,2030,25.95,0.1353,3.51,predicted
+PRY,Paraguay,2035,33.61,0.1255,4.22,predicted
+PSE,Palestine,2025,8.85,0.171,1.51,predicted
+PSE,Palestine,2030,11.69,0.1585,1.85,predicted
+PSE,Palestine,2035,14.79,0.147,2.17,predicted
+PYF,French Polynesia,2025,1.09,0.2383,0.26,predicted
+PYF,French Polynesia,2030,0.76,0.2209,0.17,predicted
+PYF,French Polynesia,2035,0.83,0.2049,0.17,predicted
+QAT,Qatar,2025,60.0,0.1841,11.04,predicted
+QAT,Qatar,2030,67.58,0.1707,11.53,predicted
+QAT,Qatar,2035,79.08,0.1582,12.51,predicted
+REU,Reunion,2025,3.71,0.2084,0.77,predicted
+REU,Reunion,2030,3.66,0.1932,0.71,predicted
+REU,Reunion,2035,3.77,0.1792,0.68,predicted
+ROU,Romania,2030,54.66,0.1783,9.75,predicted
+ROU,Romania,2035,54.03,0.1653,8.93,predicted
+RUS,Russia,2025,1393.46,0.1938,269.99,predicted
+RUS,Russia,2030,1506.74,0.1797,270.69,predicted
+RUS,Russia,2035,1490.75,0.1666,248.32,predicted
+RWA,Rwanda,2025,1.21,0.257,0.31,predicted
+RWA,Rwanda,2030,2.03,0.2383,0.48,predicted
+RWA,Rwanda,2035,3.33,0.221,0.74,predicted
+SAU,Saudi Arabia,2025,471.81,0.2176,102.68,predicted
+SAU,Saudi Arabia,2030,553.6,0.2018,111.71,predicted
+SAU,Saudi Arabia,2035,650.9,0.1871,121.78,predicted
+SDN,Sudan,2025,17.37,0.2179,3.79,predicted
+SDN,Sudan,2030,21.11,0.2021,4.27,predicted
+SDN,Sudan,2035,28.16,0.1873,5.28,predicted
+SEN,Senegal,2025,10.04,0.2962,2.97,predicted
+SEN,Senegal,2030,13.33,0.2747,3.66,predicted
+SEN,Senegal,2035,18.28,0.2547,4.66,predicted
+SGP,Singapore,2025,60.92,0.0509,3.1,predicted
+SGP,Singapore,2030,64.08,0.0472,3.03,predicted
+SGP,Singapore,2035,67.1,0.0438,2.94,predicted
+SHN,Saint Helena,2025,0.28,0.211,0.06,predicted
+SHN,Saint Helena,2030,0.11,0.1957,0.02,predicted
+SHN,Saint Helena,2035,0.01,0.1814,0.0,predicted
+SLB,Solomon Islands,2025,0.01,0.2156,0.0,predicted
+SLB,Solomon Islands,2030,0.37,0.1999,0.07,predicted
+SLB,Solomon Islands,2035,0.47,0.1853,0.09,predicted
+SLE,Sierra Leone,2025,0.53,0.2471,0.13,predicted
+SLE,Sierra Leone,2030,1.17,0.2291,0.27,predicted
+SLE,Sierra Leone,2035,1.65,0.2125,0.35,predicted
+SLV,El Salvador,2025,8.6,0.1799,1.55,predicted
+SLV,El Salvador,2030,10.48,0.1668,1.75,predicted
+SLV,El Salvador,2035,12.41,0.1546,1.92,predicted
+SOM,Somalia,2025,1.33,0.3417,0.45,predicted
+SOM,Somalia,2030,2.52,0.3168,0.8,predicted
+SOM,Somalia,2035,3.21,0.2938,0.94,predicted
+SPM,Saint Pierre and Miquelon,2025,0.27,0.2087,0.06,predicted
+SPM,Saint Pierre and Miquelon,2030,0.33,0.1935,0.06,predicted
+SPM,Saint Pierre and Miquelon,2035,0.08,0.1794,0.01,predicted
+SRB,Serbia,2030,36.95,0.2204,8.14,predicted
+SRB,Serbia,2035,36.76,0.2044,7.51,predicted
+SSD,South Sudan,2025,0.84,0.2342,0.2,predicted
+SSD,South Sudan,2030,1.08,0.2172,0.23,predicted
+SSD,South Sudan,2035,0.76,0.2014,0.15,predicted
+STP,Sao Tome and Principe,2025,0.01,0.2185,0.0,predicted
+STP,Sao Tome and Principe,2030,0.01,0.2026,0.0,predicted
+STP,Sao Tome and Principe,2035,0.01,0.1878,0.0,predicted
+SUR,Suriname,2025,1.9,0.2548,0.48,predicted
+SUR,Suriname,2030,1.8,0.2362,0.43,predicted
+SUR,Suriname,2035,1.95,0.219,0.43,predicted
+SVK,Slovakia,2030,28.26,0.1582,4.47,predicted
+SVK,Slovakia,2035,27.85,0.1466,4.08,predicted
+SVN,Slovenia,2030,13.95,0.154,2.15,predicted
+SVN,Slovenia,2035,13.88,0.1428,1.98,predicted
+SWE,Sweden,2030,137.4,0.0552,7.59,predicted
+SWE,Sweden,2035,137.01,0.0512,7.02,predicted
+SWZ,Eswatini,2025,1.72,0.1491,0.26,predicted
+SWZ,Eswatini,2030,1.97,0.1383,0.27,predicted
+SWZ,Eswatini,2035,1.81,0.1282,0.23,predicted
+SYC,Seychelles,2025,0.78,0.1639,0.13,predicted
+SYC,Seychelles,2030,1.05,0.1519,0.16,predicted
+SYC,Seychelles,2035,0.8,0.1409,0.11,predicted
+SYR,Syria,2025,16.6,0.2951,4.9,predicted
+SYR,Syria,2030,16.34,0.2737,4.47,predicted
+SYR,Syria,2035,15.46,0.2537,3.92,predicted
+TCA,Turks and Caicos Islands,2025,0.05,0.1881,0.01,predicted
+TCA,Turks and Caicos Islands,2030,0.26,0.1744,0.05,predicted
+TCA,Turks and Caicos Islands,2035,0.01,0.1617,0.0,predicted
+TCD,Chad,2025,1.02,0.319,0.33,predicted
+TCD,Chad,2030,2.22,0.2958,0.66,predicted
+TCD,Chad,2035,3.7,0.2743,1.01,predicted
+TGO,Togo,2025,1.89,0.2378,0.45,predicted
+TGO,Togo,2030,2.64,0.2205,0.58,predicted
+TGO,Togo,2035,4.3,0.2044,0.88,predicted
+THA,Thailand,2025,246.38,0.1876,46.23,predicted
+THA,Thailand,2030,278.56,0.174,48.47,predicted
+THA,Thailand,2035,317.39,0.1613,51.2,predicted
+TJK,Tajikistan,2025,23.47,0.199,4.67,predicted
+TJK,Tajikistan,2030,25.92,0.1845,4.78,predicted
+TJK,Tajikistan,2035,29.7,0.1711,5.08,predicted
+TKM,Turkmenistan,2025,26.99,0.1864,5.03,predicted
+TKM,Turkmenistan,2030,38.02,0.1728,6.57,predicted
+TKM,Turkmenistan,2035,51.61,0.1602,8.27,predicted
+TLS,East Timor,2025,0.5,0.2377,0.12,predicted
+TLS,East Timor,2030,1.02,0.2204,0.22,predicted
+TLS,East Timor,2035,1.4,0.2044,0.29,predicted
+TON,Tonga,2025,0.01,0.1944,0.0,predicted
+TON,Tonga,2030,0.35,0.1803,0.06,predicted
+TON,Tonga,2035,0.47,0.1672,0.08,predicted
+TTO,Trinidad and Tobago,2025,9.37,0.2054,1.92,predicted
+TTO,Trinidad and Tobago,2030,9.36,0.1904,1.78,predicted
+TTO,Trinidad and Tobago,2035,9.27,0.1766,1.64,predicted
+TUN,Tunisia,2025,22.7,0.2482,5.63,predicted
+TUN,Tunisia,2030,21.14,0.2301,4.86,predicted
+TUN,Tunisia,2035,21.66,0.2134,4.62,predicted
+TUR,Turkey,2030,373.8,0.2082,77.81,predicted
+TUR,Turkey,2035,403.02,0.193,77.79,predicted
+TWN,Taiwan,2025,291.9,0.2029,59.22,predicted
+TWN,Taiwan,2030,286.42,0.1881,53.88,predicted
+TWN,Taiwan,2035,290.03,0.1744,50.59,predicted
+TZA,Tanzania,2025,17.76,0.2525,4.49,predicted
+TZA,Tanzania,2030,31.66,0.2342,7.41,predicted
+TZA,Tanzania,2035,46.04,0.2171,10.0,predicted
+UGA,Uganda,2025,7.99,0.1945,1.55,predicted
+UGA,Uganda,2030,18.08,0.1804,3.26,predicted
+UGA,Uganda,2035,29.79,0.1672,4.98,predicted
+UKR,Ukraine,2025,135.81,0.2229,30.27,predicted
+UKR,Ukraine,2030,128.65,0.2066,26.58,predicted
+UKR,Ukraine,2035,114.75,0.1916,21.99,predicted
+URY,Uruguay,2025,14.2,0.151,2.14,predicted
+URY,Uruguay,2030,21.44,0.14,3.0,predicted
+URY,Uruguay,2035,24.73,0.1298,3.21,predicted
+USA,United States,2025,4425.67,0.1862,824.0,predicted
+USA,United States,2030,4432.6,0.1726,765.22,predicted
+USA,United States,2035,4462.24,0.1601,714.27,predicted
+UZB,Uzbekistan,2025,88.06,0.1977,17.41,predicted
+UZB,Uzbekistan,2030,113.41,0.1833,20.79,predicted
+UZB,Uzbekistan,2035,139.76,0.17,23.76,predicted
+VCT,Saint Vincent and the Grenadines,2025,0.03,0.2198,0.01,predicted
+VCT,Saint Vincent and the Grenadines,2030,0.32,0.2038,0.07,predicted
+VCT,Saint Vincent and the Grenadines,2035,0.44,0.1889,0.08,predicted
+VEN,Venezuela,2025,84.0,0.1577,13.24,predicted
+VEN,Venezuela,2030,86.95,0.1462,12.71,predicted
+VEN,Venezuela,2035,81.09,0.1355,10.99,predicted
+VGB,British Virgin Islands,2025,0.02,0.2329,0.0,predicted
+VGB,British Virgin Islands,2030,0.34,0.2159,0.07,predicted
+VGB,British Virgin Islands,2035,0.48,0.2002,0.1,predicted
+VIR,United States Virgin Islands,2025,0.89,0.2084,0.19,predicted
+VIR,United States Virgin Islands,2030,0.87,0.1932,0.17,predicted
+VIR,United States Virgin Islands,2035,0.74,0.1792,0.13,predicted
+VNM,Vietnam,2025,322.2,0.2587,83.34,predicted
+VNM,Vietnam,2030,382.21,0.2398,91.67,predicted
+VNM,Vietnam,2035,498.71,0.2224,110.9,predicted
+VUT,Vanuatu,2025,0.29,0.1697,0.05,predicted
+VUT,Vanuatu,2030,0.48,0.1573,0.08,predicted
+VUT,Vanuatu,2035,0.19,0.1459,0.03,predicted
+WSM,Samoa,2025,0.01,0.1656,0.0,predicted
+WSM,Samoa,2030,0.33,0.1536,0.05,predicted
+WSM,Samoa,2035,0.41,0.1424,0.06,predicted
+YEM,Yemen,2025,4.04,0.3032,1.22,predicted
+YEM,Yemen,2030,5.46,0.2811,1.53,predicted
+YEM,Yemen,2035,4.53,0.2607,1.18,predicted
+ZAF,South Africa,2025,245.43,0.3068,75.29,predicted
+ZAF,South Africa,2030,242.85,0.2845,69.08,predicted
+ZAF,South Africa,2035,239.7,0.2638,63.22,predicted
+ZMB,Zambia,2025,17.92,0.2396,4.29,predicted
+ZMB,Zambia,2030,21.13,0.2222,4.7,predicted
+ZMB,Zambia,2035,23.01,0.206,4.74,predicted
+ZWE,Zimbabwe,2025,9.41,0.2397,2.26,predicted
+ZWE,Zimbabwe,2030,9.74,0.2223,2.17,predicted
+ZWE,Zimbabwe,2035,9.77,0.2061,2.01,predicted

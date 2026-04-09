@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EnergyML - Kullanim Kilavuzu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET & BASE ========== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --sidebar-bg: #1a2332;
+  --sidebar-hover: #243044;
+  --sidebar-active: #2d3d56;
+  --sidebar-width: 280px;
+  --accent: #00b4d8;
+  --accent-light: #90e0ef;
+  --accent-dark: #0096b7;
+  --content-bg: #ffffff;
+  --content-secondary: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border: #e2e8f0;
+  --code-bg: #1e293b;
+  --code-text: #e2e8f0;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #00b4d8;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-primary);
+  background: var(--content-bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  color: #fff;
+  overflow-y: auto;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+  padding: 28px 24px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  flex-shrink: 0;
+}
+
+.sidebar-logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #fff;
+}
+
+.sidebar-logo span {
+  color: var(--accent);
+}
+
+.sidebar-version {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 12px 0;
+  overflow-y: auto;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-nav a:hover {
+  color: rgba(255,255,255,0.9);
+  background: var(--sidebar-hover);
+}
+
+.sidebar-nav a.active {
+  color: #fff;
+  background: var(--sidebar-active);
+  border-left-color: var(--accent);
+}
+
+.sidebar-nav a .nav-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.08);
+  font-size: 0.7rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.sidebar-nav a.active .nav-number {
+  background: var(--accent);
+  color: var(--sidebar-bg);
+}
+
+.sidebar-footer {
+  padding: 16px 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* ========== MOBILE TOGGLE ========== */
+.mobile-toggle {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1100;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--sidebar-bg);
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+.mobile-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.mobile-toggle span + span { margin-top: 5px; }
+
+.sidebar-open .mobile-toggle span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.sidebar-open .mobile-toggle span:nth-child(2) {
+  opacity: 0;
+}
+.sidebar-open .mobile-toggle span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+/* ========== MAIN CONTENT ========== */
+.content {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+}
+
+.content-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 48px 48px 96px;
+}
+
+/* ========== COVER SECTION ========== */
+.cover {
+  text-align: center;
+  padding: 80px 0 60px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 64px;
+}
+
+.cover-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 32px;
+}
+
+.cover h1 {
+  font-size: 2.4rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.cover h1 span {
+  color: var(--accent);
+}
+
+.cover-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-bottom: 48px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cover-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.cover-meta-item {
+  padding: 16px 20px;
+  background: var(--content-secondary);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.cover-meta-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.cover-meta-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ========== SECTIONS ========== */
+.section {
+  margin-bottom: 72px;
+  scroll-margin-top: 32px;
+}
+
+.section-header {
+  margin-bottom: 32px;
+}
+
+.section h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  padding-left: 16px;
+  border-left: 4px solid var(--accent);
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+}
+
+.section h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 32px 0 16px;
+}
+
+.section h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 24px 0 12px;
+}
+
+.section p {
+  margin-bottom: 16px;
+  color: var(--text-secondary);
+}
+
+.section ul, .section ol {
+  margin-bottom: 16px;
+  padding-left: 24px;
+}
+
+.section li {
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+}
+
+.section li strong {
+  color: var(--text-primary);
+}
+
+/* ========== CODE BLOCKS ========== */
+pre {
+  background: var(--code-bg);
+  color: var(--code-text);
+  padding: 20px 24px;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin: 16px 0 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+:not(pre) > code {
+  background: #f1f5f9;
+  color: var(--accent-dark);
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+/* Syntax highlighting */
+.code-comment { color: #64748b; font-style: italic; }
+.code-keyword { color: #c084fc; }
+.code-string { color: #34d399; }
+.code-function { color: #60a5fa; }
+.code-number { color: #fbbf24; }
+.code-flag { color: #f472b6; }
+.code-path { color: #fb923c; }
+.code-url { color: #2dd4bf; text-decoration: underline; }
+
+/* ========== TABLES ========== */
+.table-wrapper {
+  overflow-x: auto;
+  margin: 16px 0 24px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+thead th {
+  background: var(--content-secondary);
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+  color: var(--text-primary);
+}
+
+tbody td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--content-secondary);
+}
+
+tbody tr:hover {
+  background: #f0f9ff;
+}
+
+/* ========== INFO BOXES ========== */
+.info-box {
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin: 16px 0 24px;
+  border-left: 4px solid;
+  font-size: 0.9rem;
+}
+
+.info-box.tip {
+  background: #f0fdfa;
+  border-color: var(--accent);
+  color: #134e4a;
+}
+
+.info-box.warning {
+  background: #fffbeb;
+  border-color: var(--warning);
+  color: #78350f;
+}
+
+.info-box.danger {
+  background: #fef2f2;
+  border-color: var(--danger);
+  color: #7f1d1d;
+}
+
+.info-box.note {
+  background: #f0f9ff;
+  border-color: #3b82f6;
+  color: #1e3a5f;
+}
+
+.info-box-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ========== PIPELINE DIAGRAM ========== */
+.pipeline {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 24px 0 32px;
+  overflow-x: auto;
+  padding: 8px 0;
+}
+
+.pipeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+  flex: 1;
+  position: relative;
+}
+
+.pipeline-box {
+  background: linear-gradient(135deg, var(--sidebar-bg), #243044);
+  color: #fff;
+  padding: 14px 12px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.3;
+  position: relative;
+  z-index: 2;
+}
+
+.pipeline-file {
+  margin-top: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--accent);
+  font-weight: 500;
+  text-align: center;
+}
+
+.pipeline-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  align-self: flex-start;
+  padding-top: 20px;
+  color: var(--accent);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* ========== FILE TREE ========== */
+.file-tree {
+  background: var(--code-bg);
+  color: var(--code-text);
+  padding: 24px 28px;
+  border-radius: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  margin: 16px 0 24px;
+  border: 1px solid rgba(255,255,255,0.06);
+  overflow-x: auto;
+}
+
+.file-tree .folder { color: #60a5fa; font-weight: 600; }
+.file-tree .file { color: #e2e8f0; }
+.file-tree .comment { color: #64748b; font-style: italic; }
+.file-tree .connector { color: #475569; }
+
+/* ========== STEP LIST ========== */
+.steps {
+  counter-reset: step;
+  list-style: none;
+  padding-left: 0;
+  margin: 16px 0 24px;
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 16px 20px 16px 60px;
+  margin-bottom: 12px;
+  background: var(--content-secondary);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+/* ========== BADGE / TAG ========== */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-safe { background: #dcfce7; color: #166534; }
+.badge-danger { background: #fef2f2; color: #991b1b; }
+.badge-info { background: #e0f2fe; color: #075985; }
+.badge-warning { background: #fef3c7; color: #92400e; }
+
+/* ========== MODEL CARDS ========== */
+.model-card {
+  background: var(--content-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 20px 0;
+  transition: box-shadow 0.2s;
+}
+
+.model-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.model-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.model-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.model-card-icon.rf { background: linear-gradient(135deg, #10b981, #059669); }
+.model-card-icon.xgb { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.model-card-icon.lstm { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+
+.model-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.model-card-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.metric-item {
+  text-align: center;
+  padding: 12px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.metric-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.metric-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+/* ========== FAQ ========== */
+.faq-item {
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 16px 20px;
+  background: var(--content-secondary);
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.2s;
+  user-select: none;
+}
+
+.faq-question:hover {
+  background: #f1f5f9;
+}
+
+.faq-question::before {
+  content: 'S';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.faq-answer {
+  padding: 16px 20px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.92rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ========== SCROLL TO TOP ========== */
+.scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--sidebar-bg);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.3s ease;
+  z-index: 900;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-top:hover {
+  background: var(--accent);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+  .sidebar-open .sidebar-overlay {
+    display: block;
+  }
+  .mobile-toggle {
+    display: flex;
+  }
+  .content {
+    margin-left: 0;
+  }
+  .content-inner {
+    padding: 72px 20px 64px;
+  }
+  .cover h1 {
+    font-size: 1.6rem;
+  }
+  .cover-meta {
+    grid-template-columns: 1fr;
+  }
+  .pipeline {
+    flex-direction: column;
+    align-items: center;
+  }
+  .pipeline-arrow {
+    transform: rotate(90deg);
+    width: auto;
+    padding: 4px 0;
+    align-self: center;
+  }
+  .pipeline-step {
+    min-width: 200px;
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-inner {
+    padding: 64px 16px 48px;
+  }
+  .section h2 {
+    font-size: 1.35rem;
+  }
+  pre {
+    padding: 14px 16px;
+    font-size: 0.75rem;
+  }
+  .metrics-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+  .sidebar,
+  .mobile-toggle,
+  .scroll-top,
+  .sidebar-overlay {
+    display: none !important;
+  }
+  .content {
+    margin-left: 0 !important;
+  }
+  .content-inner {
+    max-width: 100%;
+    padding: 0;
+  }
+  body {
+    font-size: 11pt;
+    color: #000;
+  }
+  .cover {
+    page-break-after: always;
+  }
+  .section {
+    page-break-inside: avoid;
+  }
+  pre {
+    background: #f4f4f4 !important;
+    color: #000 !important;
+    border: 1px solid #ccc;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  .info-box {
+    border: 1px solid #ccc;
+    background: #f9f9f9 !important;
+  }
+  .model-card {
+    border: 1px solid #ccc;
+    box-shadow: none !important;
+  }
+  .pipeline-box {
+    background: #333 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  a { color: #000; text-decoration: none; }
+  h2, h3 { page-break-after: avoid; }
+  table { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- Mobile Toggle -->
+<button class="mobile-toggle" onclick="toggleSidebar()" aria-label="Menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">Energy<span>ML</span></div>
+    <div class="sidebar-version">Kullanim Kilavuzu v1.0</div>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="#kapak" class="active">
+      <span class="nav-number">1</span> Kapak / Giris
+    </a>
+    <a href="#hakkinda">
+      <span class="nav-number">2</span> Proje Hakkinda
+    </a>
+    <a href="#mimari">
+      <span class="nav-number">3</span> Sistem Mimarisi
+    </a>
+    <a href="#kurulum">
+      <span class="nav-number">4</span> Kurulum ve Calistirma
+    </a>
+    <a href="#dosyalar">
+      <span class="nav-number">5</span> Dosya Yapisi
+    </a>
+    <a href="#veri-akisi">
+      <span class="nav-number">6</span> Veri Akisi ve Leakage
+    </a>
+    <a href="#modeller">
+      <span class="nav-number">7</span> Modeller
+    </a>
+    <a href="#akademik">
+      <span class="nav-number">8</span> Akademik Testler
+    </a>
+    <a href="#dashboard">
+      <span class="nav-number">9</span> Dashboard Kullanimi
+    </a>
+    <a href="#sss">
+      <span class="nav-number">10</span> SSS
+    </a>
+    <a href="#referans">
+      <span class="nav-number">11</span> Teknik Referans
+    </a>
+  </nav>
+  <div class="sidebar-footer">
+    Kocaeli Saglik ve Teknoloji Universitesi<br>
+    2024 &ndash; 2025
+  </div>
+</aside>
+
+<!-- Main Content -->
+<main class="content">
+  <div class="content-inner">
+
+    <!-- SECTION 1: KAPAK -->
+    <section id="kapak" class="section cover">
+      <div class="cover-badge">Bitirme Projesi &middot; 2024-2025</div>
+      <h1>Energy<span>ML</span></h1>
+      <p class="cover-subtitle">
+        Makine Ogrenmesi ile Enerji Tuketimi Tahmini ve Karbon Ayak Izi Analizi
+        &mdash; Kullanim Kilavuzu ve Teknik Dokumantasyon
+      </p>
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <div class="cover-meta-label">Yazarlar</div>
+          <div class="cover-meta-value">Betul Canol, Eren Yalaz</div>
+        </div>
+        <div class="cover-meta-item">
+          <div class="cover-meta-label">Danisman</div>
+          <div class="cover-meta-value">Yusuf Gurcan Sahin</div>
+        </div>
+        <div class="cover-meta-item">
+          <div class="cover-meta-label">Universite</div>
+          <div class="cover-meta-value">Kocaeli Saglik ve Teknoloji Uni.</div>
+        </div>
+        <div class="cover-meta-item">
+          <div class="cover-meta-label">Surum</div>
+          <div class="cover-meta-value">v1.0</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: PROJE HAKKINDA -->
+    <section id="hakkinda" class="section">
+      <div class="section-header">
+        <h2>Proje Hakkinda</h2>
+      </div>
+
+      <h3>Ne?</h3>
+      <p>
+        EnergyML, <strong>213 ulke</strong> icin enerji tuketimi tahmini yapan bir makine ogrenmesi sistemidir.
+        2000-2023 yillari arasindaki tarihi verilerden ogrenip, <strong>2025, 2030 ve 2035</strong> yillari icin
+        enerji tuketimi projeksiyonlari uretir ve bu tahminleri karbon ayak izi hesaplamasina donusturur.
+      </p>
+
+      <h3>Neden?</h3>
+      <p>
+        Iklim degisikligi ve enerji guvenligi, 21. yuzyilin en kritik konularindan biridir.
+        Ulkelerin gelecekteki enerji ihtiyaclarini dogru tahmin edebilmek, <strong>surdurulebilir enerji planlamasi</strong>
+        ve <strong>karbon ayak izi azaltimi</strong> icin hayati oneme sahiptir. Bu proje, geleneksel istatistiksel
+        yontemlerin otesinde, modern ML teknikleriyle daha isabetli tahminler uretmeyi amaclar.
+      </p>
+
+      <h3>Nasil?</h3>
+      <p>
+        Sistem, uc farkli makine ogrenmesi modeli kullanir:
+      </p>
+      <ul>
+        <li><strong>Random Forest (RF)</strong> &mdash; Ensemble tree-based model, genel performans benchmark'i</li>
+        <li><strong>XGBoost</strong> &mdash; Gradient boosting ile optimize edilmis, en iyi genel sonuclari verir</li>
+        <li><strong>LSTM (Long Short-Term Memory)</strong> &mdash; Deep learning, zaman serisi iliskileri icin</li>
+      </ul>
+
+      <h3>Veri Kaynaklari</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Kaynak</th>
+              <th>Veri Turu</th>
+              <th>Dosya</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>World Bank</strong></td>
+              <td>GDP, Nufus, Kentlesme, Sanayi</td>
+              <td><code>world_bank_indicators.csv</code></td>
+            </tr>
+            <tr>
+              <td><strong>OWID (CO2)</strong></td>
+              <td>CO2 emisyonlari, fosil yakit paylari</td>
+              <td><code>owid_co2_emissions.csv</code></td>
+            </tr>
+            <tr>
+              <td><strong>OWID (Energy)</strong></td>
+              <td>Enerji uretimi, tuketimi, kaynaklari</td>
+              <td><code>owid_energy_data.csv</code></td>
+            </tr>
+            <tr>
+              <td><strong>Berkeley Earth / NOAA</strong></td>
+              <td>Iklim ve sicaklik verileri</td>
+              <td><code>climate_temperature_data.csv</code></td>
+            </tr>
+            <tr>
+              <td><strong>IEA / IPCC</strong></td>
+              <td>Sanayi enerji gostergeleri</td>
+              <td><code>industry_energy_indicators.csv</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SISTEM MIMARISI -->
+    <section id="mimari" class="section">
+      <div class="section-header">
+        <h2>Sistem Mimarisi</h2>
+      </div>
+
+      <p>
+        EnergyML, uctan uca (end-to-end) bir veri pipeline'i olarak calisir.
+        Ham veriden baslayip interaktif dashboard'a kadar tum asamalar otomatize edilmistir.
+      </p>
+
+      <h3>Veri Pipeline Diyagrami</h3>
+
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <div class="pipeline-box">Veri<br>Kaynaklari</div>
+          <div class="pipeline-file">5 CSV dosyasi</div>
+        </div>
+        <div class="pipeline-arrow">&rarr;</div>
+        <div class="pipeline-step">
+          <div class="pipeline-box">Veri<br>Birlestirme</div>
+          <div class="pipeline-file">data_merge.py</div>
+        </div>
+        <div class="pipeline-arrow">&rarr;</div>
+        <div class="pipeline-step">
+          <div class="pipeline-box">Feature<br>Engineering</div>
+          <div class="pipeline-file">feature_engineering.py</div>
+        </div>
+        <div class="pipeline-arrow">&rarr;</div>
+        <div class="pipeline-step">
+          <div class="pipeline-box">Model<br>Egitimi</div>
+          <div class="pipeline-file">model_*.py</div>
+        </div>
+        <div class="pipeline-arrow">&rarr;</div>
+        <div class="pipeline-step">
+          <div class="pipeline-box">Tahmin<br>(Forecast)</div>
+          <div class="pipeline-file">forecast.py</div>
+        </div>
+        <div class="pipeline-arrow">&rarr;</div>
+        <div class="pipeline-step">
+          <div class="pipeline-box">Karbon<br>Hesabi</div>
+          <div class="pipeline-file">carbon_footprint.py</div>
+        </div>
+        <div class="pipeline-arrow">&rarr;</div>
+        <div class="pipeline-step">
+          <div class="pipeline-box">Interaktif<br>Dashboard</div>
+          <div class="pipeline-file">arayuz.html</div>
+        </div>
+      </div>
+
+      <div class="info-box tip">
+        <div class="info-box-title">Bilgi</div>
+        Tum pipeline, <code>python3 src/main.py</code> komutu ile tek seferde calistirilabilir.
+        Her adim bir oncekinin ciktisini girdi olarak kullanir.
+      </div>
+
+      <h3>Mimari Katmanlar</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Katman</th>
+              <th>Sorumluluk</th>
+              <th>Dosyalar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Veri Katmani</strong></td>
+              <td>Toplama, temizleme, birlestirme</td>
+              <td><code>data_merge.py</code></td>
+            </tr>
+            <tr>
+              <td><strong>Feature Katmani</strong></td>
+              <td>Lag, rolling, encoding olusturma</td>
+              <td><code>feature_engineering.py</code></td>
+            </tr>
+            <tr>
+              <td><strong>Model Katmani</strong></td>
+              <td>Egitim, optimizasyon, karsilastirma</td>
+              <td><code>model_rf.py</code>, <code>model_xgboost.py</code>, <code>model_lstm.py</code>, <code>model_comparison.py</code></td>
+            </tr>
+            <tr>
+              <td><strong>Tahmin Katmani</strong></td>
+              <td>Gelecek projeksiyonlari, karbon hesabi</td>
+              <td><code>forecast.py</code>, <code>carbon_footprint.py</code></td>
+            </tr>
+            <tr>
+              <td><strong>Sunum Katmani</strong></td>
+              <td>HTTP sunucusu, interaktif dashboard</td>
+              <td><code>server.py</code>, <code>arayuz.html</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4: KURULUM ve CALISTIRMA -->
+    <section id="kurulum" class="section">
+      <div class="section-header">
+        <h2>Kurulum ve Calistirma</h2>
+      </div>
+
+      <h3>Onkosuller</h3>
+      <ul>
+        <li><strong>Python 3.8+</strong> sisteminizde kurulu olmalidir</li>
+        <li><strong>pip3</strong> paket yoneticisi gereklidir</li>
+        <li>En az <strong>4 GB RAM</strong> (LSTM egitimi icin 8 GB oneriliyor)</li>
+        <li>Internet baglantisi (ilk paket kurulumu icin)</li>
+      </ul>
+
+      <h3>Adim Adim Kurulum</h3>
+      <ol class="steps">
+        <li>
+          <strong>Gerekli kutuphaneleri kurun</strong>
+          <pre><span class="code-comment"># Tum bagimliliklari tek komutla kurun</span>
+<span class="code-keyword">pip3</span> install pandas numpy scikit-learn xgboost tensorflow matplotlib seaborn scipy</pre>
+        </li>
+        <li>
+          <strong>Pipeline'i calistirin (model egitimi + tahmin + karbon)</strong>
+          <pre><span class="code-comment"># Ana pipeline: veri birlestirme &rarr; feature &rarr; egitim &rarr; tahmin &rarr; karbon</span>
+<span class="code-keyword">python3</span> <span class="code-path">src/main.py</span></pre>
+          <div class="info-box note">
+            <div class="info-box-title">Not</div>
+            Bu islem, model egitimi dahil, bilgisayariniza bagli olarak 5-15 dakika surebilir.
+          </div>
+        </li>
+        <li>
+          <strong>Dashboard HTTP sunucusunu baslatin</strong>
+          <pre><span class="code-keyword">python3</span> <span class="code-path">server.py</span></pre>
+        </li>
+        <li>
+          <strong>Tarayicinizda acin</strong>
+          <pre><span class="code-keyword">open</span> <span class="code-url">http://localhost:8080</span></pre>
+        </li>
+      </ol>
+
+      <div class="info-box warning">
+        <div class="info-box-title">Dikkat</div>
+        <code>server.py</code> calisirken terminali kapatmayin. Sunucu arka planda calismaya devam etmelidir.
+        Durdurmak icin <code>Ctrl+C</code> tusuna basin.
+      </div>
+
+      <h3>Hizli Baslangic (Sadece Dashboard)</h3>
+      <p>
+        Eger model egitimi zaten yapilmissa ve <code>output/</code> klasorunde cikti dosyalari varsa,
+        dogrudan dashboard'u baslatabilirsiniz:
+      </p>
+      <pre><span class="code-comment"># Sadece dashboard sunucusu</span>
+<span class="code-keyword">python3</span> <span class="code-path">server.py</span>
+<span class="code-comment"># Tarayicida ac</span>
+<span class="code-keyword">open</span> <span class="code-url">http://localhost:8080</span></pre>
+    </section>
+
+    <!-- SECTION 5: DOSYA YAPISI -->
+    <section id="dosyalar" class="section">
+      <div class="section-header">
+        <h2>Dosya Yapisi</h2>
+      </div>
+
+      <p>Projenin tum dosya ve klasor yapisi asagidaki gibidir:</p>
+
+      <div class="file-tree">
+<span class="folder">project/</span>
+<span class="connector">|</span>
+<span class="connector">|-- </span><span class="folder">collected/</span>              <span class="comment"># Ham veri dosyalari</span>
+<span class="connector">|   |-- </span><span class="file">world_bank_indicators.csv</span>
+<span class="connector">|   |-- </span><span class="file">owid_co2_emissions.csv</span>
+<span class="connector">|   |-- </span><span class="file">owid_energy_data.csv</span>
+<span class="connector">|   |-- </span><span class="file">climate_temperature_data.csv</span>
+<span class="connector">|   +-- </span><span class="file">industry_energy_indicators.csv</span>
+<span class="connector">|</span>
+<span class="connector">|-- </span><span class="folder">src/</span>                    <span class="comment"># Python kaynak kodlari</span>
+<span class="connector">|   |-- </span><span class="file">main.py</span>             <span class="comment"># Ana pipeline (tum adimlari calistirir)</span>
+<span class="connector">|   |-- </span><span class="file">data_merge.py</span>       <span class="comment"># 5 CSV'yi birlestir, temizle</span>
+<span class="connector">|   |-- </span><span class="file">feature_engineering.py</span>  <span class="comment"># Lag, rolling, encoding</span>
+<span class="connector">|   |-- </span><span class="file">model_rf.py</span>         <span class="comment"># Random Forest modeli</span>
+<span class="connector">|   |-- </span><span class="file">model_xgboost.py</span>    <span class="comment"># XGBoost (hiperparametre tuning dahil)</span>
+<span class="connector">|   |-- </span><span class="file">model_lstm.py</span>       <span class="comment"># LSTM deep learning modeli</span>
+<span class="connector">|   |-- </span><span class="file">model_comparison.py</span> <span class="comment"># Karsilastirma + akademik testler</span>
+<span class="connector">|   |-- </span><span class="file">forecast.py</span>         <span class="comment"># 213 ulke icin 2025/2030/2035 tahmini</span>
+<span class="connector">|   |-- </span><span class="file">carbon_footprint.py</span> <span class="comment"># Karbon ayak izi hesaplamasi</span>
+<span class="connector">|   +-- </span><span class="file">visualize.py</span>        <span class="comment"># Grafik olusturma</span>
+<span class="connector">|</span>
+<span class="connector">|-- </span><span class="folder">output/</span>                 <span class="comment"># Cikti dosyalari</span>
+<span class="connector">|   |-- </span><span class="file">merged_clean.csv</span>
+<span class="connector">|   |-- </span><span class="file">all_countries_forecast.csv</span>
+<span class="connector">|   |-- </span><span class="file">all_countries_carbon.csv</span>
+<span class="connector">|   |-- </span><span class="file">turkey_forecast.csv</span>
+<span class="connector">|   |-- </span><span class="file">carbon_footprint.csv</span>
+<span class="connector">|   |-- </span><span class="file">dashboard_data.json</span> <span class="comment"># Dashboard verisi</span>
+<span class="connector">|   +-- </span><span class="folder">figures/</span>            <span class="comment"># 7 tez grafigi (PNG)</span>
+<span class="connector">|</span>
+<span class="connector">|-- </span><span class="file">server.py</span>               <span class="comment"># Dashboard HTTP sunucusu</span>
+<span class="connector">|-- </span><span class="file">arayuz.html</span>             <span class="comment"># Interaktif dashboard</span>
+<span class="connector">+-- </span><span class="file">elkitabi.html</span>           <span class="comment"># Bu kilavuz</span>
+      </div>
+
+      <h3>Cikti Dosyalari</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Dosya</th>
+              <th>Icerik</th>
+              <th>Format</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>merged_clean.csv</code></td>
+              <td>Birlestirilmis ve temizlenmis veri seti</td>
+              <td>CSV</td>
+            </tr>
+            <tr>
+              <td><code>all_countries_forecast.csv</code></td>
+              <td>213 ulkenin 2025/2030/2035 enerji tahminleri</td>
+              <td>CSV</td>
+            </tr>
+            <tr>
+              <td><code>all_countries_carbon.csv</code></td>
+              <td>213 ulkenin karbon ayak izi projeksiyonlari</td>
+              <td>CSV</td>
+            </tr>
+            <tr>
+              <td><code>turkey_forecast.csv</code></td>
+              <td>Turkiye'ye ozel detayli tahminler</td>
+              <td>CSV</td>
+            </tr>
+            <tr>
+              <td><code>dashboard_data.json</code></td>
+              <td>Dashboard icin hazirlanmis JSON veri</td>
+              <td>JSON</td>
+            </tr>
+            <tr>
+              <td><code>figures/</code></td>
+              <td>Tez icin uretilen 7 adet grafik</td>
+              <td>PNG</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 6: VERI AKISI -->
+    <section id="veri-akisi" class="section">
+      <div class="section-header">
+        <h2>Veri Akisi ve Data Leakage Onleme</h2>
+      </div>
+
+      <p>
+        Data leakage, modelin egitim sirasinda test verisine veya gelecek bilgisine erisip
+        gercekci olmayan yuksek basari gostermesidir. Bu proje, leakage'i onlemek icin
+        sistematik onlemler almistir.
+      </p>
+
+      <h3>Kullanilan Ozellikler (Feature'lar)</h3>
+
+      <h4>Guvenli Degiskenler <span class="badge badge-safe">KULLANILIR</span></h4>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Degisken</th>
+              <th>Aciklama</th>
+              <th>Neden Guvenli</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>population</code></td>
+              <td>Toplam nufus</td>
+              <td>Bagimsiz demografik veri, enerji tuketiminin dogrudan olcumu degil</td>
+            </tr>
+            <tr>
+              <td><code>gdp</code></td>
+              <td>Gayri Safi Yurt Ici Hasila</td>
+              <td>Ekonomik gosterge, enerjiyle nedensel iliski var ama olcum degil</td>
+            </tr>
+            <tr>
+              <td><code>urban_population_pct</code></td>
+              <td>Kentlesme orani (%)</td>
+              <td>Demografik yapi, enerji vekili degil</td>
+            </tr>
+            <tr>
+              <td><code>temperature_avg</code></td>
+              <td>Yillik ortalama sicaklik</td>
+              <td>Isitma/sogutma ihtiyacini etkiler, bagimsiz iklim verisi</td>
+            </tr>
+            <tr>
+              <td><code>industry_value_pct</code></td>
+              <td>Sanayi katma degeri (% GDP)</td>
+              <td>Ekonomik yapi gostergesi</td>
+            </tr>
+            <tr>
+              <td><code>lag_1, lag_2, lag_3</code></td>
+              <td>Gecmis enerji tuketimi (1, 2, 3 yil once)</td>
+              <td>Autoregressive &mdash; sadece gecmis veri, gelecek bilgisi icermez</td>
+            </tr>
+            <tr>
+              <td><code>rolling_mean_3</code></td>
+              <td>3 yillik hareketli ortalama</td>
+              <td>Gecmis verilerin ortalamasidir</td>
+            </tr>
+            <tr>
+              <td><code>country_encoded</code></td>
+              <td>Ulke kodlamasi</td>
+              <td>Sabit demografik bilgi</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Yasakli Degiskenler <span class="badge badge-danger">KULLANILMAZ</span></h4>
+      <div class="info-box danger">
+        <div class="info-box-title">Kritik</div>
+        Asagidaki degiskenler enerji tuketiminin dogal sonuclaridir (turetilmis metrikler).
+        Bunlari girdi olarak kullanmak, modele "cevabi" vermek anlamina gelir.
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Degisken</th>
+              <th>Neden Yasak</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>co2</code>, <code>total_ghg</code></td>
+              <td>Enerji tuketiminden dogrudan hesaplanan emisyon degerleri</td>
+            </tr>
+            <tr>
+              <td><code>energy_per_capita</code></td>
+              <td>= Toplam enerji / Nufus (hedefin kendisi)</td>
+            </tr>
+            <tr>
+              <td><code>electricity_generation</code></td>
+              <td>Enerji tuketiminin bir alt bilesenid</td>
+            </tr>
+            <tr>
+              <td><code>carbon_intensity_elec</code></td>
+              <td>Enerji kullanarak hesaplanan turetilmis metrik</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Lag Feature'lar Neden Leakage Degildir?</h3>
+      <div class="info-box tip">
+        <div class="info-box-title">Onemli Aciklama</div>
+        Lag feature'lar (lag_1, lag_2, lag_3) gecmis yillarin enerji tuketim degerlerini kullanir.
+        Ornegin, 2020 yilini tahmin ederken <code>lag_1</code> = 2019 degeri, <code>lag_2</code> = 2018 degeri kullanilir.
+        Bu, zaman serisi analizinde standart bir <strong>autoregressive (AR)</strong> yaklasimdir ve
+        gelecek bilgisi icermez. ARIMA, Prophet gibi tum zaman serisi modelleri de ayni mantigi kullanir.
+      </div>
+
+      <h3>Temporal Split (Zamana Dayali Bolme)</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Set</th>
+              <th>Yillar</th>
+              <th>Amac</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Train (Egitim)</strong></td>
+              <td>2001 &ndash; 2018</td>
+              <td>Model ogrenmesi</td>
+            </tr>
+            <tr>
+              <td><strong>Validation (Dogrulama)</strong></td>
+              <td>2019 &ndash; 2020</td>
+              <td>Hiperparametre ayari</td>
+            </tr>
+            <tr>
+              <td><strong>Test</strong></td>
+              <td>2021 &ndash; 2023</td>
+              <td>Final performans degerlendirmesi</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box warning">
+        <div class="info-box-title">Neden Random Split Kullanilmaz?</div>
+        Random split, 2022 verisini egitimde, 2021 verisini test'te kullanabilir. Bu durumda
+        model "gelecegi" gorerek ogrenirdi &mdash; bu <strong>temporal leakage</strong> olusturur.
+        Zamana dayali split, gercek dunya senaryosunu simule eder: model sadece gecmisi gorerek
+        gelecegi tahmin eder.
+      </div>
+    </section>
+
+    <!-- SECTION 7: MODELLER -->
+    <section id="modeller" class="section">
+      <div class="section-header">
+        <h2>Modeller</h2>
+      </div>
+
+      <p>
+        EnergyML projesi uc farkli makine ogrenmesi modeli kullanir. Her biri farkli guclu
+        yonlere sahiptir ve karsilastirmali analiz ile en uygun model belirlenir.
+      </p>
+
+      <!-- Random Forest -->
+      <div class="model-card">
+        <div class="model-card-header">
+          <div class="model-card-icon rf">RF</div>
+          <div>
+            <div class="model-card-title">Random Forest</div>
+            <div class="model-card-subtitle">Ensemble Tree-Based Model</div>
+          </div>
+        </div>
+        <p>
+          Birden fazla karar agacini (decision tree) bir araya getirerek, her agacin farkli veri
+          alt kumeleri ve feature'lar uzerinde egitildigi bir ensemble yontemidir. Tahminler,
+          tum agaclarin ortalamasidir (regresyon icin).
+        </p>
+        <h4>Hiperparametreler</h4>
+        <pre><span class="code-function">n_estimators</span> = <span class="code-number">200</span>       <span class="code-comment"># Agac sayisi</span>
+<span class="code-function">max_depth</span> = <span class="code-number">15</span>           <span class="code-comment"># Maksimum derinlik</span>
+<span class="code-function">min_samples_split</span> = <span class="code-number">5</span>  <span class="code-comment"># Bolme icin minimum ornek</span>
+<span class="code-function">min_samples_leaf</span> = <span class="code-number">2</span>   <span class="code-comment"># Yaprakta minimum ornek</span>
+<span class="code-function">random_state</span> = <span class="code-number">42</span>       <span class="code-comment"># Tekrarlanabilirlik</span></pre>
+        <div class="metrics-row">
+          <div class="metric-item">
+            <div class="metric-value">0.994</div>
+            <div class="metric-label">Test R2</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">~15%</div>
+            <div class="metric-label">Test MAPE</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">Hizli</div>
+            <div class="metric-label">Egitim Suresi</div>
+          </div>
+        </div>
+        <p><strong>Guclu yonleri:</strong> Hizli egitim, yorumlanabilir, overfitting'e dayanikli</p>
+        <p><strong>Zayif yonleri:</strong> Zaman serisi bagimliligini dogal olarak yakalanamaz</p>
+      </div>
+
+      <!-- XGBoost -->
+      <div class="model-card">
+        <div class="model-card-header">
+          <div class="model-card-icon xgb">XGB</div>
+          <div>
+            <div class="model-card-title">XGBoost</div>
+            <div class="model-card-subtitle">Gradient Boosting + Hyperparameter Tuning</div>
+          </div>
+        </div>
+        <p>
+          Sirayla agaclar ekleyerek her yeni agacin onceki agaclarin hatalarini duzeltmeye
+          odaklandigi boosting yontemidir. GridSearchCV ile hiperparametre optimizasyonu uygulanmistir.
+        </p>
+        <h4>Hiperparametreler (GridSearchCV ile secilen)</h4>
+        <pre><span class="code-function">n_estimators</span> = <span class="code-number">300</span>       <span class="code-comment"># Agac sayisi</span>
+<span class="code-function">max_depth</span> = <span class="code-number">8</span>            <span class="code-comment"># Maksimum derinlik</span>
+<span class="code-function">learning_rate</span> = <span class="code-number">0.05</span>     <span class="code-comment"># Ogrenme hizi</span>
+<span class="code-function">subsample</span> = <span class="code-number">0.8</span>          <span class="code-comment"># Ornek alt kumesi</span>
+<span class="code-function">colsample_bytree</span> = <span class="code-number">0.8</span>  <span class="code-comment"># Feature alt kumesi</span>
+<span class="code-function">reg_alpha</span> = <span class="code-number">0.1</span>          <span class="code-comment"># L1 regularizasyon</span>
+<span class="code-function">reg_lambda</span> = <span class="code-number">1.0</span>         <span class="code-comment"># L2 regularizasyon</span></pre>
+        <div class="metrics-row">
+          <div class="metric-item">
+            <div class="metric-value">0.996</div>
+            <div class="metric-label">Test R2</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">~12%</div>
+            <div class="metric-label">Test MAPE</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">Orta</div>
+            <div class="metric-label">Egitim Suresi</div>
+          </div>
+        </div>
+        <p><strong>Guclu yonleri:</strong> En iyi genel performans, regularizasyon destegi, feature importance</p>
+        <p><strong>Zayif yonleri:</strong> Hiperparametre hassasiyeti, egitim suresi RF'den uzun</p>
+      </div>
+
+      <!-- LSTM -->
+      <div class="model-card">
+        <div class="model-card-header">
+          <div class="model-card-icon lstm">DL</div>
+          <div>
+            <div class="model-card-title">LSTM (Long Short-Term Memory)</div>
+            <div class="model-card-subtitle">Deep Learning &mdash; Recurrent Neural Network</div>
+          </div>
+        </div>
+        <p>
+          Zaman serisi verilerindeki uzun vadeli bagimliliklari yakalamak icin tasarlanmis
+          bir derin ogrenme mimarisidir. "Unutma kapisi" mekanizmasi ile hangi bilgiyi
+          hatirlamasi/unutmasi gerektigine karar verir.
+        </p>
+        <h4>Mimari</h4>
+        <pre><span class="code-function">LSTM</span>(<span class="code-number">64</span> unit) &rarr; <span class="code-function">Dropout</span>(<span class="code-number">0.2</span>) &rarr; <span class="code-function">LSTM</span>(<span class="code-number">32</span> unit) &rarr; <span class="code-function">Dropout</span>(<span class="code-number">0.2</span>) &rarr; <span class="code-function">Dense</span>(<span class="code-number">1</span>)
+<span class="code-comment"># Sequence length: 3 yil</span>
+<span class="code-comment"># Optimizer: Adam (lr=0.001)</span>
+<span class="code-comment"># Loss: MSE</span>
+<span class="code-comment"># Epochs: 100 (early stopping patience=10)</span></pre>
+        <div class="metrics-row">
+          <div class="metric-item">
+            <div class="metric-value">0.991</div>
+            <div class="metric-label">Test R2</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">~18%</div>
+            <div class="metric-label">Test MAPE</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">Yavas</div>
+            <div class="metric-label">Egitim Suresi</div>
+          </div>
+        </div>
+        <p><strong>Guclu yonleri:</strong> Zaman serisi oruntuleri, non-linear iliski modelleme</p>
+        <p><strong>Zayif yonleri:</strong> Cok veri gerektirir, egitim suresi uzun, yorumlanmasi zor</p>
+      </div>
+
+      <h3>Naive Baseline (Persistence Model)</h3>
+      <div class="info-box note">
+        <div class="info-box-title">Neden Naive Baseline Onemlidir?</div>
+        Naive baseline, "yarin bugun gibi olacak" varsayimidir: bir sonraki yilin
+        enerji tuketimi = bu yilin tuketimi. Bu basit model sasirtici derecede gucludur cunku
+        enerji tuketimi yildan yila cok az degisir. Her ML modelinin bu baseline'i gecmesi
+        <strong>ZORUNLUDUR</strong> &mdash; aksi halde ML kullanmanin bir anlami yoktur.
+      </div>
+
+      <h3>R2 &gt; 0.99 Neden Supheli Degil?</h3>
+      <p>
+        Panel enerji verisinde R2 &gt; 0.99 beklenirdir. Bunun nedenleri:
+      </p>
+      <ul>
+        <li><strong>Yuksek varyans:</strong> 213 ulke arasindaki fark cok buyuktur (Cin ~160.000 TWh vs Malta ~8 TWh).
+        Bu dev varyans, R2'yi dogal olarak yukseltir.</li>
+        <li><strong>Yuksek otokorelasyon:</strong> Bir ulkenin enerji tuketimi yildan yila %1-3 degisir.
+        Lag feature'lar bu inersiyi kolayca yakalar.</li>
+        <li><strong>Akademik norm:</strong> Benzer calismalarda (IEA, IPCC senaryolari) da R2 &gt; 0.98 raporlanir.</li>
+      </ul>
+      <p>
+        Onemli olan R2 degil, <strong>MAPE</strong> (Mean Absolute Percentage Error) ve
+        <strong>naive baseline'a karsi kazanim</strong>dir.
+      </p>
+
+      <h3>Feature Importance</h3>
+      <p>
+        XGBoost feature importance sonuclarina gore en etkili degiskenler:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Sira</th>
+              <th>Feature</th>
+              <th>Etki</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><code>lag_1</code></td>
+              <td>Baskind &mdash; bir onceki yilin tuketimi en guclu tahmincidir</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><code>population</code></td>
+              <td>Nufus buyuklugu enerji talebini dogal olarak belirler</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><code>gdp</code></td>
+              <td>Ekonomik buyukluk enerji tuketimiyle dogru orantili</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><code>rolling_mean_3</code></td>
+              <td>3 yillik trend, ani degisimleri yumusatir</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><code>urban_population_pct</code></td>
+              <td>Kentlesme orani, enerji yogunlugunu etkiler</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 8: AKADEMIK TESTLER -->
+    <section id="akademik" class="section">
+      <div class="section-header">
+        <h2>Akademik Dogrulama Testleri</h2>
+      </div>
+
+      <p>
+        EnergyML, akademik guvenirligi saglamak icin 8 farkli dogrulama testi uygular.
+        Bu testler, modelin gercekten ogrenip ogrenmedigini, leakage olup olmadigini ve
+        sonuclarin istatistiksel olarak anlamli olup olmadigini kanitlar.
+      </p>
+
+      <!-- Test 1 -->
+      <div class="model-card">
+        <h3>1. Leakage Kaniti (Korelasyon Matrisi)</h3>
+        <p>
+          Girdi feature'larinin hedef degiskenle korelasyonu incelenir. Eger bir feature
+          hedefle &gt;0.95 korelasyona sahipse, bu leakage isaretidir.
+          Lag feature'lar haric &mdash; bunlar autoregressive yapidir.
+        </p>
+        <p><strong>Sonuc:</strong> Yasak degiskenler (CO2, energy_per_capita vb.) cikarilmistir.
+        Kalan feature'lar arasinda leakage tespit edilmemistir.</p>
+      </div>
+
+      <!-- Test 2 -->
+      <div class="model-card">
+        <h3>2. Naive Baseline Karsilastirmasi</h3>
+        <p>
+          Her ML modeli, "yarin = bugun" varsayan naive (persistence) modeliyle karsilastirilir.
+          Model ancak naive baseline'dan anlamli olcude iyiyse basarili sayilir.
+        </p>
+        <p><strong>Sonuc:</strong> Kisa vadede naive baseline gucludur (enerji tuketimi yavas degisir),
+        uzun vadeli projeksiyonlarda ML modelleri belirgin avantaj saglar.</p>
+      </div>
+
+      <!-- Test 3 -->
+      <div class="model-card">
+        <h3>3. Feature Importance + Ablation Study</h3>
+        <p>
+          Her feature teker teker cikarilarak modelin performansina etkisi olculur.
+          Eger tek bir feature cikarildiginda performans dramatik dusuyorsa, model o
+          feature'a asiri bagimlidir (potansiyel risk).
+        </p>
+        <p><strong>Sonuc:</strong> lag_1 en etkili feature, ancak cikarildiginda dahi model
+        mantikli sonuclar uretir (diger feature'lar telafi eder).</p>
+      </div>
+
+      <!-- Test 4 -->
+      <div class="model-card">
+        <h3>4. Residual Analizi</h3>
+        <p>
+          Model hatalarinin (residual = gercek - tahmin) dagilimi incelenir. Iyi bir modelin
+          residual'lari rastgele olmalidir &mdash; sistematik bir pattern varsa model bir seyi
+          yakalayamamis demektir.
+        </p>
+        <p><strong>Sonuc:</strong> Residual'lar yaklasik normal dagilim gosterir.
+        COVID-19 donemi (2020-2021) tum modellerde daha yuksek hata uretir &mdash; beklenen bir durumdur.</p>
+      </div>
+
+      <!-- Test 5 -->
+      <div class="model-card">
+        <h3>5. Temporal Generalization</h3>
+        <p>
+          Modelin farkli zaman dilimlerindeki performansi test edilir. Egitim doneminde iyi
+          ama test doneminde kotu ise, model genelleyemiyor demektir.
+        </p>
+        <p><strong>Sonuc:</strong> Train-test performans farki makul sinirlar icindedir
+        (overfitting kaniti yoktur).</p>
+      </div>
+
+      <!-- Test 6 -->
+      <div class="model-card">
+        <h3>6. Cross-Country Generalization</h3>
+        <p>
+          Model, hic gormedigi ulke gruplari uzerinde test edilir.
+          Ornegin OECD ulkeleri ile egitiip, gelismekte olan ulkelerde test etmek.
+        </p>
+        <p><strong>Sonuc:</strong> Model, farkli gelisim seviyelerindeki ulkelere genelleyebilmektedir.</p>
+      </div>
+
+      <!-- Test 7 -->
+      <div class="model-card">
+        <h3>7. Overfitting Kontrolu</h3>
+        <p>
+          Train ve test performanslari arasindaki fark incelenir. Train R2 = 0.999 ve
+          Test R2 = 0.6 ise ciddi overfitting vardir. Idealinde fark kucuk olmalidir.
+        </p>
+        <p><strong>Sonuc:</strong> Train-Test metrikleri arasindaki fark makul seviyededir.
+        Regularizasyon (XGBoost L1/L2, LSTM dropout) overfitting'i kontrol altinda tutar.</p>
+      </div>
+
+      <!-- Test 8 -->
+      <div class="model-card">
+        <h3>8. Istatistiksel Anlamlilik (Diebold-Mariano Testi)</h3>
+        <p>
+          Iki modelin tahmin hatalari arasinda istatistiksel olarak anlamli bir fark olup
+          olmadigini test eder. p &lt; 0.05 ise fark anlamlidir.
+        </p>
+        <p><strong>Sonuc:</strong> XGBoost, Random Forest'a karsi istatistiksel olarak anlamli
+        avantaj gostermistir (p &lt; 0.05). LSTM-XGBoost farki bazi metriklerde anlamsiz olabilir.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 9: DASHBOARD KULLANIMI -->
+    <section id="dashboard" class="section">
+      <div class="section-header">
+        <h2>Dashboard Kullanimi</h2>
+      </div>
+
+      <p>
+        EnergyML dashboard'u, tum analiz sonuclarini interaktif olarak gorsellestirir.
+        <code>http://localhost:8080</code> adresinden erisilen tek sayfalik bir web uygulamasidir.
+      </p>
+
+      <h3>Navigasyon</h3>
+      <p>
+        Ust kisimda bulunan sekme (tab) butonlariyla bolumler arasi gecis yapilir.
+        Her bolum farkli bir analiz perspektifi sunar.
+      </p>
+
+      <h3>Ulke Arama ve Secimi</h3>
+      <ul>
+        <li>Arama kutusuna ulke adi yazarak <strong>213 ulke</strong> arasindan hizlica secim yapin</li>
+        <li>Haritada bir ulkeye tiklayarak da secim yapabilirsiniz</li>
+        <li>Secilen ulke tum grafik ve tablolara otomatik yansir</li>
+      </ul>
+
+      <h3>Parametre Degistirme</h3>
+      <div class="info-box tip">
+        <div class="info-box-title">Interaktif Senaryolar</div>
+        Dashboard uzerinde uc temel parametreyi degistirerek farkli gelecek senaryolari olusturabilirsiniz:
+      </div>
+      <ul>
+        <li><strong>Elektrik uretimi:</strong> Yenilenebilir enerji payinin artmasi veya azalmasi</li>
+        <li><strong>GDP buyumesi:</strong> Ekonomik buyume senaryolari</li>
+        <li><strong>Kentlesme orani:</strong> Sehirlesme hizinin etkisi</li>
+      </ul>
+
+      <h3>Dunya Haritasi</h3>
+      <ul>
+        <li><strong>Hover:</strong> Fare imlecini bir ulkenin uzerine getirdiginizde deger gorursunuz</li>
+        <li><strong>Tikla:</strong> Ulkeyi secmek icin tiklatin</li>
+        <li><strong>Scroll:</strong> Fare tekerlegiyle zum yapin</li>
+        <li><strong>Surukle:</strong> Haritayi surukleyerek konumunu degistirin</li>
+      </ul>
+
+      <h3>Tahmin Grafigi</h3>
+      <p>
+        Secilen ulke icin gercek tuketim verileri (2000-2023) ve model tahminleri (2025-2035)
+        ayni grafik uzerinde gosterilir. Hover ile her veri noktasinin degerini gorebilirsiniz.
+      </p>
+
+      <h3>Karbon Ayak Izi Grafigi</h3>
+      <p>
+        Tahmin edilen enerji tuketiminden hesaplanan CO2 projeksiyonlari gorsellestirilir.
+        Ulke bazinda karbon emisyon trendini takip edebilirsiniz.
+      </p>
+
+      <h3>Model Egitimi (UI'dan)</h3>
+      <div class="info-box warning">
+        <div class="info-box-title">Dikkat</div>
+        "Model Egit" butonu tum pipeline'i bastan calistirir. Bu islem 5-15 dakika surebilir.
+        Egitim sirasinda sayfa donmaz &mdash; Server-Sent Events (SSE) ile asenkron calisir
+        ve ilerleme durumu canli olarak goruntulenir.
+      </div>
+
+      <h3>Tema Degistirme</h3>
+      <p>
+        Sag ust kosedeki toggle butonu ile <strong>Dark/Light tema</strong> arasinda gecis yapabilirsiniz.
+      </p>
+
+      <h3>Veri Ihracati (Export)</h3>
+      <ul>
+        <li><strong>CSV:</strong> Tahmin ve karbon verilerini tablo formatinda indirin</li>
+        <li><strong>PNG:</strong> Grafikleri gorsel dosya olarak kaydedin</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 10: SSS -->
+    <section id="sss" class="section">
+      <div class="section-header">
+        <h2>Sikca Sorulan Sorular (SSS)</h2>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">R2 degerleri neden bu kadar yuksek (0.99+)?</div>
+        <div class="faq-answer">
+          Panel enerji verisinde R2 &gt; 0.99 normaldir. 213 ulke arasindaki devasa farklar
+          (Cin ~160.000 TWh vs Malta ~8 TWh) toplam varyansi buyutur. Model bu buyuk varyansi
+          yakaladigi icin R2 otomatik olarak yuksek cikar. Bu bir leakage belirtisi degildir.
+          Asil performans gostergesi MAPE ve naive baseline karsilastirmasidir.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">MAPE neden %12-18 civarinda?</div>
+        <div class="faq-answer">
+          Test donemi (2021-2023), COVID-19 pandemisinden dogrudan etkilenen yillari kapsar.
+          Pandemi, tum dunyada enerji tuketim kaliplarini ani ve beklenmedik sekilde degistirmistir.
+          Hicbir model tarihi veriden pandemi etkisini tahmin edemez. Pandemi oncesi donemde
+          MAPE degerleri cok daha dusuktur.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Naive baseline neden bazen ML'den iyi sonuc veriyor?</div>
+        <div class="faq-answer">
+          Kisa vadede (1 yil) enerji tuketimi genellikle %1-3 degisir. "Yarin = bugun" varsayimi
+          bu yavas degisim icerisinde dogal olarak iyi calisir. Ancak ML modelleri <strong>uzun vadeli
+          projeksiyonlarda</strong> (2030, 2035) ve <strong>trend degisimlerinde</strong> (enerji donusumu,
+          ekonomik krizler) naive baseline'a karsi belirgin avantaj saglar.
+          Naive baseline karsilastirmasi, tam da bu akademik durustlugu gostermek icin yapilir.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Karbon hesabi nasil yapiliyor?</div>
+        <div class="faq-answer">
+          Tahmin edilen toplam enerji tuketimi (TWh) ile ulkeye ozel <strong>emisyon faktoru</strong>
+          (ton CO2 / MWh) carpilarak karbon ayak izi hesaplanir. Emisyon faktoru, ulkenin enerji
+          miks'ine (komur, dogalgaz, yenilenebilir paylari) gore belirlenir. Ornegin, komur agirlikli
+          bir ulkenin emisyon faktoru, hidroelektrik agirlikli bir ulkeden cok daha yuksektir.
+          <br><br>
+          <strong>Formul:</strong> <code>CO2 (ton) = Enerji (TWh) * 1.000.000 * Emisyon Faktoru (ton/MWh)</code>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Model egitiyor ama site donmuyor mu?</div>
+        <div class="faq-answer">
+          Hayir. Dashboard'daki "Model Egit" butonu, sunucu tarafinda
+          <strong>Server-Sent Events (SSE)</strong> teknolojisiyle calisir. Egitim arka planda
+          ayri bir islem (process) olarak calisir ve ilerleme durumu canli olarak tarayiciya
+          aktarilir. Sayfa normal kullanima devam eder, sadece ilerleme cubugu guncellenir.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Yeni veri ekleyebilir miyim?</div>
+        <div class="faq-answer">
+          Evet. <code>collected/</code> klasorundeki CSV dosyalarini guncelleyip
+          <code>python3 src/main.py</code> komutunu yeniden calistirmaniz yeterlidir.
+          Pipeline otomatik olarak yeni verileri isle yecek, modelleri yeniden egitecek
+          ve tahminleri guncelleyecektir.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Hangi Python surumu gerekli?</div>
+        <div class="faq-answer">
+          Python <strong>3.8 veya ustu</strong> gereklidir. TensorFlow (LSTM icin)
+          ve XGBoost'un en son surumleri Python 3.8-3.11 ile uyumludur.
+          Python 3.12+ ile TensorFlow uyumlulugu kontrol edilmelidir.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: TEKNIK REFERANS -->
+    <section id="referans" class="section">
+      <div class="section-header">
+        <h2>Teknik Referans</h2>
+      </div>
+
+      <h3>Pipeline Adimlari ve Suresi</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Adim</th>
+              <th>Dosya</th>
+              <th>Yaklasik Sure</th>
+              <th>Cikti</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Veri Birlestirme</td>
+              <td><code>data_merge.py</code></td>
+              <td>~10 sn</td>
+              <td><code>merged_clean.csv</code></td>
+            </tr>
+            <tr>
+              <td>2. Feature Engineering</td>
+              <td><code>feature_engineering.py</code></td>
+              <td>~5 sn</td>
+              <td>Feature matrisi (bellekte)</td>
+            </tr>
+            <tr>
+              <td>3a. Random Forest</td>
+              <td><code>model_rf.py</code></td>
+              <td>~30 sn</td>
+              <td>RF model + metrikler</td>
+            </tr>
+            <tr>
+              <td>3b. XGBoost</td>
+              <td><code>model_xgboost.py</code></td>
+              <td>~2-5 dk</td>
+              <td>XGB model + metrikler</td>
+            </tr>
+            <tr>
+              <td>3c. LSTM</td>
+              <td><code>model_lstm.py</code></td>
+              <td>~3-8 dk</td>
+              <td>LSTM model + metrikler</td>
+            </tr>
+            <tr>
+              <td>4. Model Karsilastirma</td>
+              <td><code>model_comparison.py</code></td>
+              <td>~1 dk</td>
+              <td>8 akademik test sonucu</td>
+            </tr>
+            <tr>
+              <td>5. Tahmin</td>
+              <td><code>forecast.py</code></td>
+              <td>~30 sn</td>
+              <td><code>all_countries_forecast.csv</code></td>
+            </tr>
+            <tr>
+              <td>6. Karbon Hesabi</td>
+              <td><code>carbon_footprint.py</code></td>
+              <td>~10 sn</td>
+              <td><code>all_countries_carbon.csv</code></td>
+            </tr>
+            <tr>
+              <td>7. Gorsellestirme</td>
+              <td><code>visualize.py</code></td>
+              <td>~20 sn</td>
+              <td><code>figures/*.png</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Toplam pipeline suresi:</strong> Yaklasik 7-15 dakika (donanima baglidir)</p>
+
+      <h3>Feature Listesi (13 Feature)</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Feature</th>
+              <th>Tip</th>
+              <th>Aciklama</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td><code>year</code></td><td>Temporal</td><td>Yil</td></tr>
+            <tr><td>2</td><td><code>population</code></td><td>Demografik</td><td>Toplam nufus</td></tr>
+            <tr><td>3</td><td><code>gdp</code></td><td>Ekonomik</td><td>GSYH (USD)</td></tr>
+            <tr><td>4</td><td><code>urban_population_pct</code></td><td>Demografik</td><td>Kentlesme orani (%)</td></tr>
+            <tr><td>5</td><td><code>industry_value_pct</code></td><td>Ekonomik</td><td>Sanayi katma degeri (% GDP)</td></tr>
+            <tr><td>6</td><td><code>renewable_share</code></td><td>Enerji</td><td>Yenilenebilir enerji payi (%)</td></tr>
+            <tr><td>7</td><td><code>temperature_avg</code></td><td>Iklim</td><td>Yillik ortalama sicaklik</td></tr>
+            <tr><td>8</td><td><code>lag_1</code></td><td>Autoregressive</td><td>1 yil onceki enerji tuketimi</td></tr>
+            <tr><td>9</td><td><code>lag_2</code></td><td>Autoregressive</td><td>2 yil onceki enerji tuketimi</td></tr>
+            <tr><td>10</td><td><code>lag_3</code></td><td>Autoregressive</td><td>3 yil onceki enerji tuketimi</td></tr>
+            <tr><td>11</td><td><code>rolling_mean_3</code></td><td>Istatistik</td><td>3 yillik hareketli ortalama</td></tr>
+            <tr><td>12</td><td><code>energy_growth_rate</code></td><td>Istatistik</td><td>Yillik buyume orani</td></tr>
+            <tr><td>13</td><td><code>country_encoded</code></td><td>Kategorik</td><td>Ulke label encoding</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Metrik Tanimlari</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Metrik</th>
+              <th>Formul</th>
+              <th>Yorumlama</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>MAE</strong></td>
+              <td>Mean Absolute Error = mean(|y - y&#770;|)</td>
+              <td>Ortalama mutlak hata. Dusuk = iyi. Birim: TWh</td>
+            </tr>
+            <tr>
+              <td><strong>RMSE</strong></td>
+              <td>Root Mean Squared Error = sqrt(mean((y - y&#770;)2))</td>
+              <td>Buyuk hatalara hassas. Dusuk = iyi. Birim: TWh</td>
+            </tr>
+            <tr>
+              <td><strong>MAPE</strong></td>
+              <td>Mean Absolute Percentage Error = mean(|y - y&#770;| / |y|) * 100</td>
+              <td>Yuzdesel hata. Olcekten bagimsiz karsilastirma saglar</td>
+            </tr>
+            <tr>
+              <td><strong>R2</strong></td>
+              <td>R-squared = 1 - SS_res / SS_tot</td>
+              <td>Aciklanan varyans orani. 1'e yakin = iyi. Panel veride &gt;0.99 normaldir</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Emisyon Faktoru Hesaplama Formulu</h3>
+      <pre><span class="code-comment"># Ulkeye ozel emisyon faktoru (ton CO2 / MWh)</span>
+<span class="code-function">emission_factor</span> = (
+    <span class="code-function">coal_share</span>  * <span class="code-number">0.91</span> +    <span class="code-comment"># Komur: en yuksek emisyon</span>
+    <span class="code-function">gas_share</span>   * <span class="code-number">0.41</span> +    <span class="code-comment"># Dogalgaz: orta emisyon</span>
+    <span class="code-function">oil_share</span>   * <span class="code-number">0.73</span> +    <span class="code-comment"># Petrol: yuksek emisyon</span>
+    <span class="code-function">nuclear_share</span> * <span class="code-number">0.012</span> + <span class="code-comment"># Nukleer: cok dusuk</span>
+    <span class="code-function">renewable_share</span> * <span class="code-number">0.0</span>  <span class="code-comment"># Yenilenebilir: sifir</span>
+)
+
+<span class="code-comment"># Karbon ayak izi</span>
+<span class="code-function">co2_tons</span> = <span class="code-function">energy_twh</span> * <span class="code-number">1_000_000</span> * <span class="code-function">emission_factor</span></pre>
+
+      <div class="info-box tip">
+        <div class="info-box-title">Kaynak</div>
+        Emisyon katsayilari IPCC 2014 Bes. Degerlendirme Raporu'na dayanmaktadir.
+        Gercek degerler ulkeye, teknolojiye ve verimlilge gore degisebilir.
+      </div>
+
+      <h3>Sistem Gereksinimleri</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Bilesen</th>
+              <th>Minimum</th>
+              <th>Onerilen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Python</td>
+              <td>3.8</td>
+              <td>3.10+</td>
+            </tr>
+            <tr>
+              <td>RAM</td>
+              <td>4 GB</td>
+              <td>8 GB</td>
+            </tr>
+            <tr>
+              <td>Disk</td>
+              <td>500 MB</td>
+              <td>1 GB</td>
+            </tr>
+            <tr>
+              <td>Isletim Sistemi</td>
+              <td>macOS / Linux / Windows</td>
+              <td>macOS / Linux</td>
+            </tr>
+            <tr>
+              <td>GPU</td>
+              <td>Gerekli degil</td>
+              <td>CUDA destekli (LSTM hizlandirma)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 48px 0 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.82rem;">
+      <p style="margin-bottom: 8px;">
+        <strong style="color: var(--text-primary);">EnergyML</strong> &mdash;
+        Makine Ogrenmesi ile Enerji Tuketimi Tahmini ve Karbon Ayak Izi Analizi
+      </p>
+      <p>Betul Canol &middot; Eren Yalaz &middot; Kocaeli Saglik ve Teknoloji Universitesi &middot; 2024-2025</p>
+      <p style="margin-top: 16px; font-size: 0.72rem;">v1.0 &middot; Danisman: Yusuf Gurcan Sahin</p>
+    </footer>
+
+  </div>
+</main>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-top" onclick="scrollToTop()" aria-label="Basa don">&#8593;</button>
+
+<script>
+// Sidebar toggle for mobile
+function toggleSidebar() {
+  document.body.classList.toggle('sidebar-open');
+}
+
+// Close sidebar when clicking a nav link (mobile)
+document.querySelectorAll('.sidebar-nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 900) {
+      document.body.classList.remove('sidebar-open');
+    }
+  });
+});
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+function updateActiveNav() {
+  let current = '';
+  const scrollY = window.scrollY;
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    const sectionHeight = section.offsetHeight;
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  // If at the very top, highlight first section
+  if (scrollY < 200) {
+    current = 'kapak';
+  }
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateActiveNav);
+window.addEventListener('load', updateActiveNav);
+
+// Scroll to top button
+const scrollTopBtn = document.querySelector('.scroll-top');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) {
+    scrollTopBtn.classList.add('visible');
+  } else {
+    scrollTopBtn.classList.remove('visible');
+  }
+});
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
