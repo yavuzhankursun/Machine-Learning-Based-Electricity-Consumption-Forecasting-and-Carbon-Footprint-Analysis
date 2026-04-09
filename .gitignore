@@ -1,0 +1,37 @@
+# Kişisel Claude hafızası
+.claude/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Eğitim sırasında üretilen model dosyaları (git'e gerek yok, eğitimden çıkar)
+pipeline/asama1_feature_tahmini/modeller/*.pkl
+pipeline/asama2_elektrik_tahmini/modeller/*.pkl
+pipeline/asama2_elektrik_tahmini/modeller/lstm_model/
+
+# Eğitim çıktıları (grafikler, tahmin CSV'leri) — git'e gerek yok
+pipeline/asama1_feature_tahmini/ciktilar/
+pipeline/asama2_elektrik_tahmini/ciktilar/
+pipeline/sonuclar/gorseller/
+pipeline/sonuclar/tahminler/
+
+# ml-aaaa kendi git reposu — bu repoya dahil edilmiyor
+# Gerekli CSV'ler pipeline/veri/ham/ klasorune kopyalandi
+ml-aaaa/
+
+# Eski Turkiye'ye ozgu split dosyalari (artik kullanilmiyor)
+pipeline/veri/islenmis/turkiye_*.csv
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
