@@ -26,6 +26,14 @@ ml-aaaa/
 # Eski Turkiye'ye ozgu split dosyalari (artik kullanilmiyor)
 pipeline/veri/islenmis/turkiye_*.csv
 
+# Dashboard build artifacts (git'e gerek yok)
+dashboard/node_modules/
+dashboard/dist/
+dashboard/.vite/
+
+# Backup dosyalari
+*.bak_*
+
 # Jupyter
 .ipynb_checkpoints/
 

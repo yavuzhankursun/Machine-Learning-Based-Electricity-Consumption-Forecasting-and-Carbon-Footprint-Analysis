@@ -36,8 +36,8 @@ CIKTI_DIR     = SCRIPT_DIR
 
 HAM_DOSYALAR = {
     'merged_clean'    : os.path.join(HAM_DIR, 'merged_clean.csv'),
-    'owid_energy'     : os.path.join(HAM_DIR, 'owid_energy_data.csv'),
-    'owid_co2'        : os.path.join(HAM_DIR, 'owid_co2_emissions.csv'),
+    'owid_energy'     : os.path.join(HAM_DIR, 'owid-energy-data-FULL.csv'),  # 130 sutun, 1900-2025
+    'owid_co2'        : os.path.join(HAM_DIR, 'owid-co2-data-FULL.csv'),     # 79 sutun, 1750-2024
     'industry_energy' : os.path.join(HAM_DIR, 'industry_energy_indicators.csv'),
     'climate_temp'    : os.path.join(HAM_DIR, 'climate_temperature_data.csv'),
 }
@@ -49,13 +49,21 @@ VAL_ILK    = 2021; VAL_SON  = 2023
 TEST_ILK   = 2024; TEST_SON = 2025
 
 EK_FEATURES = {
-    # Enerji kaynağı karışımı — elektriği hangi kaynak üretiyor?
+    # Enerji kaynağı karışımı (miktar, TWh) — elektriği hangi kaynak üretiyor?
     'fossil_fuel_consumption' : 'owid_energy',   # fosil yakıt tüketimi (TWh)
     'nuclear_consumption'     : 'owid_energy',   # nükleer tüketim (TWh)
-    # Fosil yakıt bileşimi — kömür mü, gaz mı ağırlıklı?
-    'coal_co2'                : 'owid_co2',      # kömür kaynaklı CO2 (ton)
-    'gas_co2'                 : 'owid_co2',      # gaz kaynaklı CO2 (ton)
-    'co2_per_capita'          : 'owid_co2',      # kişi başına emisyon
+    # YENI: Birincil enerji metrikleri (CO2 leakage'siz, STIRPAT temel değişkenleri)
+    'primary_energy_consumption': 'owid_energy', # toplam birincil enerji (TWh)
+    'energy_per_capita'       : 'owid_energy',   # kişi başı enerji (kWh)
+    'energy_per_gdp'          : 'owid_energy',   # enerji yoğunluğu (kWh/$) ⭐STIRPAT
+    # YENI: Elektrik üretim mix payları (oransal, mevcut miktarlardan farklı bilgi)
+    'nuclear_share_elec'      : 'owid_energy',   # nükleer üretim payı (%)
+    'fossil_share_elec'       : 'owid_energy',   # fosil üretim payı (%)
+    # Fosil yakıt bileşimi — kömür mü, gaz mı ağırlıklı? (CO2 türevi DEĞİL: yakıttan
+    # üretilen CO2 miktarı; ama yine de hedefin alt bileşenleri olduğu için DİKKAT)
+    'coal_co2'                : 'owid_co2',      # kömür kaynaklı CO2 (ton) ⚠️
+    'gas_co2'                 : 'owid_co2',      # gaz kaynaklı CO2 (ton)  ⚠️
+    'co2_per_capita'          : 'owid_co2',      # kişi başına emisyon ⚠️ LEAKAGE
     # Şebeke verimliliği
     'Electricity_Loss_Pct'    : 'industry_energy', # iletim kayıp oranı (%)
     # İklim değişimi
@@ -85,9 +93,12 @@ print("Datasetler birleştiriliyor...")
 
 merge_key = ['country', 'year']
 
-# owid_energy'den sadece istediğimiz sütunlar
+# owid_energy'den istediğimiz sütunlar (eski + yeni STIRPAT/mix featurelar)
+energy_cols = ['fossil_fuel_consumption', 'nuclear_consumption',
+               'primary_energy_consumption', 'energy_per_capita', 'energy_per_gdp',
+               'nuclear_share_elec', 'fossil_share_elec']
 df = base_df.merge(
-    owid_energy[merge_key + ['fossil_fuel_consumption', 'nuclear_consumption']],
+    owid_energy[merge_key + energy_cols],
     on=merge_key, how='left'
 )
 
@@ -145,12 +156,14 @@ df = df[mevcut_kolonlar]
 ek_feature_cols = [c for c in EK_FEATURE_LISTESI if c in df.columns]
 temel_feature_cols = [c for c in TEMEL_FEATURES if c in df.columns]
 
-# Train + Val: tüm feature'larda NaN olan satırı at
+# Train + Val: sadece TEMEL feature'larda NaN olan satırı at.
+# Ek feature'lar (owid, co2 vb.) bazı ülkelerde bazı yıllar NaN olabilir —
+# Aşama 1 her feature'ı ayrı eğittiği için bu sorun değil.
 train_val_mask = df['year'] <= VAL_SON
 df_trainval = df[train_val_mask].copy()
 onceki = len(df_trainval)
 df_trainval = df_trainval.dropna(
-    subset=[c for c in TUM_FEATURES if c in df.columns]
+    subset=temel_feature_cols
 ).reset_index(drop=True)
 print(f"  Train/Val NaN temizligi: {onceki} -> {len(df_trainval)} satir")
 
