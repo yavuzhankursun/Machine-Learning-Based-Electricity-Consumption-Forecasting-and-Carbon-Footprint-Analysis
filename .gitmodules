@@ -1,0 +1,3 @@
+[submodule "dashboard"]
+	path = dashboard
+	url = https://github.com/yavuzhankursun/tez-enerji-karbon-dashboard.git
