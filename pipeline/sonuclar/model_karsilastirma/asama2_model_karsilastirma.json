@@ -1,0 +1,133 @@
+{
+ "hedef": "electricity_demand",
+ "birim": "TWh",
+ "en_iyi": "LSTM",
+ "input_cols": [
+  "electricity_demand_lag1",
+  "electricity_demand_lag2",
+  "Population",
+  "GDP_Per_Capita",
+  "GDP_Growth",
+  "renewables_share_elec",
+  "Urbanization_Rate",
+  "Industry_Value_Added_Pct_GDP",
+  "Population_Density",
+  "fossil_fuel_consumption",
+  "nuclear_consumption",
+  "primary_energy_consumption",
+  "energy_per_capita",
+  "energy_per_gdp",
+  "nuclear_share_elec",
+  "fossil_share_elec",
+  "coal_co2",
+  "gas_co2",
+  "co2_per_capita",
+  "temperature_change_from_ghg"
+ ],
+ "n_obs": 34,
+ "min_train": 15,
+ "fark_al": true,
+ "modeller": {
+  "RF": {
+   "r2": 0.9666,
+   "mae": 7.7892,
+   "rmse": 9.1782,
+   "mape": 2.9468,
+   "cv_n": 19,
+   "params": {
+    "n_estimators": 210,
+    "max_depth": 9,
+    "min_samples_leaf": 1,
+    "max_features": "log2",
+    "random_state": 42,
+    "n_jobs": -1
+   }
+  },
+  "XGBoost": {
+   "r2": 0.9698,
+   "mae": 7.3613,
+   "rmse": 8.7207,
+   "mape": 2.7562,
+   "cv_n": 19,
+   "params": {
+    "n_estimators": 232,
+    "max_depth": 3,
+    "learning_rate": 0.14474247425043532,
+    "subsample": 0.9179892506404976,
+    "colsample_bytree": 0.8358394007383038,
+    "reg_alpha": 0.020724986054062144,
+    "reg_lambda": 1.4349442643539614,
+    "random_state": 42,
+    "verbosity": 0
+   }
+  },
+  "LightGBM": {
+   "r2": 0.9694,
+   "mae": 7.1212,
+   "rmse": 8.7849,
+   "mape": 2.6208,
+   "cv_n": 19,
+   "params": {
+    "n_estimators": 144,
+    "max_depth": 6,
+    "num_leaves": 25,
+    "learning_rate": 0.060099747183803134,
+    "subsample": 0.6624074561769746,
+    "colsample_bytree": 0.662397808134481,
+    "min_child_samples": 2,
+    "reg_alpha": 1.7323522915498704,
+    "reg_lambda": 1.8033450352296265,
+    "random_state": 42,
+    "n_jobs": -1,
+    "verbosity": -1
+   }
+  },
+  "CatBoost": {
+   "r2": 0.9711,
+   "mae": 7.2129,
+   "rmse": 8.5388,
+   "mape": 2.721,
+   "cv_n": 19,
+   "params": {
+    "iterations": 292,
+    "depth": 3,
+    "learning_rate": 0.060400684673437004,
+    "l2_leaf_reg": 1.0589698971018988,
+    "random_state": 42,
+    "verbose": 0,
+    "allow_writing_files": false
+   }
+  },
+  "LSTM": {
+   "r2": 0.9738,
+   "mae": 6.8423,
+   "rmse": 8.1298,
+   "mape": 2.574,
+   "cv_n": 19,
+   "params": {
+    "units1": 128,
+    "units2": 32,
+    "dropout": 0.25681984881459824,
+    "lr": 0.0007162786999897341,
+    "batch": 8
+   }
+  },
+  "ARIMA": {
+   "r2": 0.954,
+   "mae": 8.3181,
+   "rmse": 10.7737,
+   "mape": 3.1182,
+   "cv_n": 19,
+   "order": "(1, 1, 0)"
+  },
+  "SARIMA": {
+   "r2": 0.949,
+   "mae": 8.9924,
+   "rmse": 11.339,
+   "mape": 3.3576,
+   "cv_n": 19,
+   "order": "(1, 1, 0)",
+   "seasonal_order": "(0, 0, 1, 3)"
+  }
+ }
+}

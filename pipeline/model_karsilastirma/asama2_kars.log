@@ -1,0 +1,26 @@
+========================================================================
+ASAMA 2 — 7 MODEL KARSILASTIRMASI (Turkiye elektrik talebi)
+  Modeller: RF, XGBoost, LightGBM, CatBoost, LSTM, ARIMA, SARIMA
+  TensorFlow(LSTM)=True  statsmodels(ARIMA/SARIMA)=True
+  Degerlendirme: Walk-Forward Expanding Window CV
+========================================================================
+  Turkey: 36 yil (1990-2025)
+  Kullanilan feature (13): ['Population', 'GDP_Per_Capita', 'GDP_Growth', 'renewables_share_elec', 'Urbanization_Rate', 'Industry_Value_Added_Pct_GDP', 'Population_Density', 'fossil_fuel_consumption', 'nuclear_consumption', 'coal_co2', 'gas_co2', 'co2_per_capita', 'temperature_change_from_ghg']
+  Atlanan (yetersiz): ['Electricity_Loss_Pct']
+  Kullanilabilir: 34 yil (1992-2025)
+  Girdi: 2 lag + 13 feature = 15
+  Walk-Forward CV: min_train=15, 19 out-of-sample tahmin
+
+    RF        R²=  0.8002  RMSE=   22.4500  MAPE=   8.09%  (n=19)
+    XGBoost   R²=  0.9358  RMSE=   12.7206  MAPE=   4.01%  (n=19)
+    LightGBM  R²=  0.8152  RMSE=   21.5914  MAPE=   7.46%  (n=19)
+    CatBoost  R²=  0.8715  RMSE=   18.0056  MAPE=   6.14%  (n=19)
+    LSTM      R²=  0.9644  RMSE=    9.4808  MAPE=   2.52%  (n=19)
+    ARIMA     R²=  0.9540  RMSE=   10.7737  MAPE=   3.12%  (order=(1, 1, 0))
+    SARIMA    R²=  0.9490  RMSE=   11.3390  MAPE=   3.36%  (order=(1, 1, 0) seasonal=(0, 0, 1, 3))
+
+  EN IYI MODEL: LSTM (R²=0.9644)
+  Sure: 2.7dk
+
+  CSV : /Users/yavuzhan/Desktop/Tezler/10 Nisan Çalışan Model Tez/ml-aaaa/pipeline/sonuclar/model_karsilastirma/asama2_model_karsilastirma.csv
+  JSON: /Users/yavuzhan/Desktop/Tezler/10 Nisan Çalışan Model Tez/ml-aaaa/pipeline/sonuclar/model_karsilastirma/asama2_model_karsilastirma.json

@@ -1,0 +1,1892 @@
+{
+ "Population": {
+  "en_iyi": "XGBoost",
+  "modeller": {
+   "RF": {
+    "r2": 0.9989,
+    "mae": 176959.8296,
+    "rmse": 241622.0637,
+    "mape": 0.2178,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 259,
+     "max_depth": 10,
+     "min_samples_leaf": 1,
+     "max_features": 0.7,
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.9993,
+    "mae": 134916.9115,
+    "rmse": 187703.1127,
+    "mape": 0.167,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 185,
+     "max_depth": 4,
+     "learning_rate": 0.18255631599020647,
+     "subsample": 0.972916136764715,
+     "colsample_bytree": 0.6061470949312417,
+     "reg_alpha": 0.7960866844403535,
+     "reg_lambda": 0.5378605927568922,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.9981,
+    "mae": 239730.5912,
+    "rmse": 316343.6694,
+    "mape": 0.2934,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 120,
+     "max_depth": 4,
+     "num_leaves": 29,
+     "learning_rate": 0.19484145596316,
+     "subsample": 0.7555095255896298,
+     "colsample_bytree": 0.8303395317175302,
+     "min_child_samples": 2,
+     "reg_alpha": 1.720609349730419,
+     "reg_lambda": 0.13007128777007582,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.9993,
+    "mae": 134974.8126,
+    "rmse": 187781.8668,
+    "mape": 0.1671,
+    "cv_n": 24,
+    "params": {
+     "iterations": 248,
+     "depth": 4,
+     "learning_rate": 0.19679621881723522,
+     "l2_leaf_reg": 2.0000031842383486,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.9951,
+    "mae": 378415.1452,
+    "rmse": 506797.3654,
+    "mape": 0.4563,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": -2.5893,
+    "mae": 3132491.9017,
+    "rmse": 13685340.9465,
+    "mape": 3.6861,
+    "cv_n": 24,
+    "order": "(2, 1, 1)"
+   },
+   "SARIMA": {
+    "r2": 0.9284,
+    "mae": 567793.0575,
+    "rmse": 1932225.817,
+    "mape": 0.6921,
+    "cv_n": 24,
+    "order": "(2, 1, 1)",
+    "seasonal_order": "(1, 0, 0, 3)"
+   }
+  }
+ },
+ "GDP_Per_Capita": {
+  "en_iyi": "LSTM",
+  "modeller": {
+   "RF": {
+    "r2": 0.7838,
+    "mae": 942.9465,
+    "rmse": 1184.3839,
+    "mape": 10.6984,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 350,
+     "max_depth": 2,
+     "min_samples_leaf": 1,
+     "max_features": "log2",
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.7383,
+    "mae": 1018.4093,
+    "rmse": 1303.0328,
+    "mape": 11.2333,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 198,
+     "max_depth": 2,
+     "learning_rate": 0.061721159481070736,
+     "subsample": 0.6682096494749166,
+     "colsample_bytree": 0.6260206371941118,
+     "reg_alpha": 1.8977710745066665,
+     "reg_lambda": 2.9140800826863984,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.7639,
+    "mae": 987.0779,
+    "rmse": 1237.5355,
+    "mape": 10.5634,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 126,
+     "max_depth": 2,
+     "num_leaves": 24,
+     "learning_rate": 0.03738105868191797,
+     "subsample": 0.6488152939379115,
+     "colsample_bytree": 0.798070764044508,
+     "min_child_samples": 2,
+     "reg_alpha": 1.8186408041575641,
+     "reg_lambda": 0.7763399448000508,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.7417,
+    "mae": 1058.7103,
+    "rmse": 1294.4405,
+    "mape": 11.7053,
+    "cv_n": 24,
+    "params": {
+     "iterations": 203,
+     "depth": 2,
+     "learning_rate": 0.023993242906812727,
+     "l2_leaf_reg": 2.8318092164684585,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.8073,
+    "mae": 859.0331,
+    "rmse": 1117.9413,
+    "mape": 9.6374,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.8047,
+    "mae": 902.9078,
+    "rmse": 1125.5288,
+    "mape": 10.016,
+    "cv_n": 24,
+    "order": "(1, 1, 0)"
+   },
+   "SARIMA": {
+    "r2": -0.5116,
+    "mae": 1782.5403,
+    "rmse": 3131.3369,
+    "mape": 24.3158,
+    "cv_n": 24,
+    "order": "(1, 1, 0)",
+    "seasonal_order": "(0, 0, 1, 3)"
+   }
+  }
+ },
+ "GDP_Growth": {
+  "en_iyi": "ARIMA",
+  "modeller": {
+   "RF": {
+    "r2": -1.1216,
+    "mae": 3.7786,
+    "rmse": 5.1546,
+    "mape": 90.5697,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 387,
+     "max_depth": 6,
+     "min_samples_leaf": 5,
+     "max_features": "log2",
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": -1.1504,
+    "mae": 3.9733,
+    "rmse": 5.1895,
+    "mape": 90.2782,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 51,
+     "max_depth": 4,
+     "learning_rate": 0.01012445518482309,
+     "subsample": 0.9292089538734684,
+     "colsample_bytree": 0.7135437115194186,
+     "reg_alpha": 1.1897853899618511,
+     "reg_lambda": 2.326202656258735,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": -1.189,
+    "mae": 4.0068,
+    "rmse": 5.2359,
+    "mape": 99.4272,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 291,
+     "max_depth": 4,
+     "num_leaves": 15,
+     "learning_rate": 0.16328176997790195,
+     "subsample": 0.811268713696243,
+     "colsample_bytree": 0.9630659181130072,
+     "min_child_samples": 8,
+     "reg_alpha": 1.2125780566031361,
+     "reg_lambda": 2.9096880285011553,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": -1.1826,
+    "mae": 3.8212,
+    "rmse": 5.2282,
+    "mape": 82.6783,
+    "cv_n": 24,
+    "params": {
+     "iterations": 53,
+     "depth": 3,
+     "learning_rate": 0.010452160228431302,
+     "l2_leaf_reg": 4.896195715048111,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": -1.2539,
+    "mae": 4.0693,
+    "rmse": 5.3129,
+    "mape": 108.6366,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": -0.2015,
+    "mae": 2.9516,
+    "rmse": 3.879,
+    "mape": 69.9109,
+    "cv_n": 24,
+    "order": "(0, 1, 1)"
+   },
+   "SARIMA": {
+    "r2": -0.5397,
+    "mae": 3.3548,
+    "rmse": 4.3912,
+    "mape": 79.4195,
+    "cv_n": 24,
+    "order": "(0, 1, 1)",
+    "seasonal_order": "(0, 0, 1, 3)"
+   }
+  }
+ },
+ "renewables_share_elec": {
+  "en_iyi": "ARIMA",
+  "modeller": {
+   "RF": {
+    "r2": 0.4497,
+    "mae": 5.1235,
+    "rmse": 6.2043,
+    "mape": 17.6791,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 124,
+     "max_depth": 8,
+     "min_samples_leaf": 1,
+     "max_features": "log2",
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.4064,
+    "mae": 5.5011,
+    "rmse": 6.4439,
+    "mape": 18.7918,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 198,
+     "max_depth": 2,
+     "learning_rate": 0.061721159481070736,
+     "subsample": 0.6682096494749166,
+     "colsample_bytree": 0.6260206371941118,
+     "reg_alpha": 1.8977710745066665,
+     "reg_lambda": 2.9140800826863984,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.2045,
+    "mae": 6.1251,
+    "rmse": 7.4598,
+    "mape": 20.541,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 227,
+     "max_depth": 2,
+     "num_leaves": 31,
+     "learning_rate": 0.12106896936002161,
+     "subsample": 0.6849356442713105,
+     "colsample_bytree": 0.6727299868828402,
+     "min_child_samples": 3,
+     "reg_alpha": 0.6084844859190754,
+     "reg_lambda": 1.5742692948967134,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.4599,
+    "mae": 5.0829,
+    "rmse": 6.1468,
+    "mape": 17.5141,
+    "cv_n": 24,
+    "params": {
+     "iterations": 203,
+     "depth": 2,
+     "learning_rate": 0.023993242906812727,
+     "l2_leaf_reg": 2.8318092164684585,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.5244,
+    "mae": 4.5816,
+    "rmse": 5.7679,
+    "mape": 15.9318,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.6111,
+    "mae": 4.1797,
+    "rmse": 5.216,
+    "mape": 14.4476,
+    "cv_n": 24,
+    "order": "(1, 1, 0)"
+   },
+   "SARIMA": {
+    "r2": 0.4945,
+    "mae": 4.9298,
+    "rmse": 5.9464,
+    "mape": 17.1695,
+    "cv_n": 24,
+    "order": "(1, 1, 0)",
+    "seasonal_order": "(1, 0, 0, 3)"
+   }
+  }
+ },
+ "Urbanization_Rate": {
+  "en_iyi": "XGBoost",
+  "modeller": {
+   "RF": {
+    "r2": 0.992,
+    "mae": 0.5775,
+    "rmse": 1.0004,
+    "mape": 0.7068,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 259,
+     "max_depth": 10,
+     "min_samples_leaf": 1,
+     "max_features": 0.7,
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.9946,
+    "mae": 0.4526,
+    "rmse": 0.8268,
+    "mape": 0.5497,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 236,
+     "max_depth": 5,
+     "learning_rate": 0.14324796370645884,
+     "subsample": 0.9143614658160499,
+     "colsample_bytree": 0.8358394007383038,
+     "reg_alpha": 0.004852865576020766,
+     "reg_lambda": 1.4349442643539614,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.9899,
+    "mae": 0.6669,
+    "rmse": 1.1247,
+    "mape": 0.8186,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 294,
+     "max_depth": 4,
+     "num_leaves": 14,
+     "learning_rate": 0.12790791715676442,
+     "subsample": 0.8561711433906498,
+     "colsample_bytree": 0.7631656976888936,
+     "min_child_samples": 2,
+     "reg_alpha": 0.020131504625012564,
+     "reg_lambda": 2.1635482079936406,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.9945,
+    "mae": 0.4551,
+    "rmse": 0.8285,
+    "mape": 0.5521,
+    "cv_n": 24,
+    "params": {
+     "iterations": 243,
+     "depth": 4,
+     "learning_rate": 0.11980079465833443,
+     "l2_leaf_reg": 2.1356950582543934,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.9774,
+    "mae": 1.1785,
+    "rmse": 1.6829,
+    "mape": 1.4101,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.9902,
+    "mae": 0.8923,
+    "rmse": 1.1079,
+    "mape": 1.1726,
+    "cv_n": 24,
+    "order": "(0, 1, 1)"
+   },
+   "SARIMA": {
+    "r2": 0.9921,
+    "mae": 0.6105,
+    "rmse": 0.9928,
+    "mape": 0.7672,
+    "cv_n": 24,
+    "order": "(0, 1, 1)",
+    "seasonal_order": "(1, 0, 0, 2)"
+   }
+  }
+ },
+ "Industry_Value_Added_Pct_GDP": {
+  "en_iyi": "ARIMA",
+  "modeller": {
+   "RF": {
+    "r2": 0.4684,
+    "mae": 1.0201,
+    "rmse": 1.3378,
+    "mape": 3.7249,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 342,
+     "max_depth": 3,
+     "min_samples_leaf": 1,
+     "max_features": 0.7,
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.4192,
+    "mae": 1.1319,
+    "rmse": 1.3984,
+    "mape": 4.1228,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 168,
+     "max_depth": 4,
+     "learning_rate": 0.18255631599020647,
+     "subsample": 0.6071847502459278,
+     "colsample_bytree": 0.8732428970871787,
+     "reg_alpha": 0.07745039992236624,
+     "reg_lambda": 2.3259172380175244,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.4393,
+    "mae": 0.9788,
+    "rmse": 1.374,
+    "mape": 3.5992,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 258,
+     "max_depth": 5,
+     "num_leaves": 31,
+     "learning_rate": 0.12182579044731365,
+     "subsample": 0.7971457481268196,
+     "colsample_bytree": 0.7027926946274412,
+     "min_child_samples": 2,
+     "reg_alpha": 1.1465819553024583,
+     "reg_lambda": 1.8643744043989878,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.4459,
+    "mae": 1.0592,
+    "rmse": 1.3659,
+    "mape": 3.8833,
+    "cv_n": 24,
+    "params": {
+     "iterations": 293,
+     "depth": 3,
+     "learning_rate": 0.018078836714879476,
+     "l2_leaf_reg": 1.0468492910723641,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.4099,
+    "mae": 1.0695,
+    "rmse": 1.4095,
+    "mape": 3.9834,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.521,
+    "mae": 1.0648,
+    "rmse": 1.27,
+    "mape": 3.9101,
+    "cv_n": 24,
+    "order": "(0, 1, 1)"
+   },
+   "SARIMA": {
+    "r2": 0.4343,
+    "mae": 1.0946,
+    "rmse": 1.3801,
+    "mape": 4.0352,
+    "cv_n": 24,
+    "order": "(0, 1, 1)",
+    "seasonal_order": "(0, 0, 1, 3)"
+   }
+  }
+ },
+ "Population_Density": {
+  "en_iyi": "RF",
+  "modeller": {
+   "RF": {
+    "r2": 0.9984,
+    "mae": 0.2142,
+    "rmse": 0.3259,
+    "mape": 0.2138,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 259,
+     "max_depth": 10,
+     "min_samples_leaf": 1,
+     "max_features": 0.7,
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.9983,
+    "mae": 0.1877,
+    "rmse": 0.328,
+    "mape": 0.189,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 236,
+     "max_depth": 5,
+     "learning_rate": 0.14324796370645884,
+     "subsample": 0.9143614658160499,
+     "colsample_bytree": 0.8358394007383038,
+     "reg_alpha": 0.004852865576020766,
+     "reg_lambda": 1.4349442643539614,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.9977,
+    "mae": 0.2724,
+    "rmse": 0.3837,
+    "mape": 0.2698,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 294,
+     "max_depth": 4,
+     "num_leaves": 14,
+     "learning_rate": 0.12790791715676442,
+     "subsample": 0.8561711433906498,
+     "colsample_bytree": 0.7631656976888936,
+     "min_child_samples": 2,
+     "reg_alpha": 0.020131504625012564,
+     "reg_lambda": 2.1635482079936406,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.9983,
+    "mae": 0.1857,
+    "rmse": 0.3278,
+    "mape": 0.1869,
+    "cv_n": 24,
+    "params": {
+     "iterations": 248,
+     "depth": 4,
+     "learning_rate": 0.19679621881723522,
+     "l2_leaf_reg": 2.0000031842383486,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.9967,
+    "mae": 0.3332,
+    "rmse": 0.4629,
+    "mape": 0.3244,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.9975,
+    "mae": 0.2465,
+    "rmse": 0.4053,
+    "mape": 0.2485,
+    "cv_n": 24,
+    "order": "(1, 1, 1)"
+   },
+   "SARIMA": {
+    "r2": 0.9963,
+    "mae": 0.292,
+    "rmse": 0.4877,
+    "mape": 0.2951,
+    "cv_n": 24,
+    "order": "(1, 1, 1)",
+    "seasonal_order": "(1, 0, 0, 3)"
+   }
+  }
+ },
+ "fossil_fuel_consumption": {
+  "en_iyi": "LSTM",
+  "modeller": {
+   "RF": {
+    "r2": 0.946,
+    "mae": 52.9285,
+    "rmse": 66.8766,
+    "mape": 4.2363,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 334,
+     "max_depth": 5,
+     "min_samples_leaf": 1,
+     "max_features": 0.7,
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.9509,
+    "mae": 49.9034,
+    "rmse": 63.7839,
+    "mape": 3.9044,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 144,
+     "max_depth": 5,
+     "learning_rate": 0.08960785365368121,
+     "subsample": 0.8394633936788146,
+     "colsample_bytree": 0.6624074561769746,
+     "reg_alpha": 0.3119890406724053,
+     "reg_lambda": 0.6452090304204987,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.9446,
+    "mae": 55.6575,
+    "rmse": 67.7507,
+    "mape": 4.342,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 120,
+     "max_depth": 4,
+     "num_leaves": 29,
+     "learning_rate": 0.19484145596316,
+     "subsample": 0.7555095255896298,
+     "colsample_bytree": 0.8303395317175302,
+     "min_child_samples": 2,
+     "reg_alpha": 1.720609349730419,
+     "reg_lambda": 0.13007128777007582,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.9363,
+    "mae": 55.6041,
+    "rmse": 72.6878,
+    "mape": 4.544,
+    "cv_n": 24,
+    "params": {
+     "iterations": 248,
+     "depth": 4,
+     "learning_rate": 0.19679621881723522,
+     "l2_leaf_reg": 2.0000031842383486,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.9612,
+    "mae": 47.0768,
+    "rmse": 56.6866,
+    "mape": 3.6252,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.949,
+    "mae": 52.5377,
+    "rmse": 65.0353,
+    "mape": 4.2328,
+    "cv_n": 24,
+    "order": "(1, 1, 0)"
+   },
+   "SARIMA": {
+    "r2": 0.9478,
+    "mae": 54.6702,
+    "rmse": 65.7513,
+    "mape": 4.411,
+    "cv_n": 24,
+    "order": "(1, 1, 0)",
+    "seasonal_order": "(1, 0, 0, 3)"
+   }
+  }
+ },
+ "nuclear_consumption": {
+  "en_iyi": "RF",
+  "modeller": {
+   "RF": {
+    "r2": 1.0,
+    "mae": 0.0,
+    "rmse": 0.0,
+    "mape": NaN,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 181,
+     "max_depth": 10,
+     "min_samples_leaf": 4,
+     "max_features": "sqrt",
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 1.0,
+    "mae": 0.0,
+    "rmse": 0.0,
+    "mape": NaN,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 144,
+     "max_depth": 5,
+     "learning_rate": 0.08960785365368121,
+     "subsample": 0.8394633936788146,
+     "colsample_bytree": 0.6624074561769746,
+     "reg_alpha": 0.3119890406724053,
+     "reg_lambda": 0.6452090304204987,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 1.0,
+    "mae": 0.0,
+    "rmse": 0.0,
+    "mape": NaN,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 144,
+     "max_depth": 6,
+     "num_leaves": 25,
+     "learning_rate": 0.060099747183803134,
+     "subsample": 0.6624074561769746,
+     "colsample_bytree": 0.662397808134481,
+     "min_child_samples": 2,
+     "reg_alpha": 1.7323522915498704,
+     "reg_lambda": 1.8033450352296265,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": NaN,
+    "mae": NaN,
+    "rmse": NaN,
+    "mape": NaN,
+    "cv_n": 0
+   },
+   "LSTM": {
+    "r2": 0.0,
+    "mae": 0.0,
+    "rmse": 0.0,
+    "mape": NaN,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.0,
+    "mae": 0.0,
+    "rmse": 0.0,
+    "mape": NaN,
+    "cv_n": 24,
+    "order": "(1, 0, 0)"
+   },
+   "SARIMA": {
+    "r2": 1.0,
+    "mae": 0.0,
+    "rmse": 0.0,
+    "mape": NaN,
+    "cv_n": 24,
+    "order": "(1, 0, 0)",
+    "seasonal_order": "(1, 0, 0, 2)"
+   }
+  }
+ },
+ "primary_energy_consumption": {
+  "en_iyi": "LSTM",
+  "modeller": {
+   "RF": {
+    "r2": 0.9671,
+    "mae": 59.966,
+    "rmse": 70.4892,
+    "mape": 4.255,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 259,
+     "max_depth": 10,
+     "min_samples_leaf": 1,
+     "max_features": 0.7,
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.966,
+    "mae": 61.2981,
+    "rmse": 71.6526,
+    "mape": 4.2925,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 299,
+     "max_depth": 4,
+     "learning_rate": 0.19715184255697488,
+     "subsample": 0.601687448505531,
+     "colsample_bytree": 0.8700857191344269,
+     "reg_alpha": 1.5175258550131068,
+     "reg_lambda": 0.6782978654099387,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.9703,
+    "mae": 54.7639,
+    "rmse": 66.9952,
+    "mape": 3.9834,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 120,
+     "max_depth": 4,
+     "num_leaves": 29,
+     "learning_rate": 0.19484145596316,
+     "subsample": 0.7555095255896298,
+     "colsample_bytree": 0.8303395317175302,
+     "min_child_samples": 2,
+     "reg_alpha": 1.720609349730419,
+     "reg_lambda": 0.13007128777007582,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.9585,
+    "mae": 67.1533,
+    "rmse": 79.1491,
+    "mape": 4.7019,
+    "cv_n": 24,
+    "params": {
+     "iterations": 238,
+     "depth": 5,
+     "learning_rate": 0.19696376345185088,
+     "l2_leaf_reg": 4.223368426340427,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.9783,
+    "mae": 49.9082,
+    "rmse": 57.1637,
+    "mape": 3.4072,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.9672,
+    "mae": 60.9986,
+    "rmse": 70.3489,
+    "mape": 4.313,
+    "cv_n": 24,
+    "order": "(1, 1, 0)"
+   },
+   "SARIMA": {
+    "r2": 0.9612,
+    "mae": 66.2063,
+    "rmse": 76.4842,
+    "mape": 4.6948,
+    "cv_n": 24,
+    "order": "(1, 1, 0)",
+    "seasonal_order": "(1, 0, 0, 3)"
+   }
+  }
+ },
+ "energy_per_capita": {
+  "en_iyi": "LSTM",
+  "modeller": {
+   "RF": {
+    "r2": 0.9394,
+    "mae": 689.8589,
+    "rmse": 809.1606,
+    "mape": 3.8073,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 210,
+     "max_depth": 9,
+     "min_samples_leaf": 1,
+     "max_features": "log2",
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.9274,
+    "mae": 748.4915,
+    "rmse": 885.6565,
+    "mape": 4.0752,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 144,
+     "max_depth": 5,
+     "learning_rate": 0.08960785365368121,
+     "subsample": 0.8394633936788146,
+     "colsample_bytree": 0.6624074561769746,
+     "reg_alpha": 0.3119890406724053,
+     "reg_lambda": 0.6452090304204987,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.9305,
+    "mae": 708.1334,
+    "rmse": 866.7083,
+    "mape": 3.9194,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 144,
+     "max_depth": 6,
+     "num_leaves": 25,
+     "learning_rate": 0.060099747183803134,
+     "subsample": 0.6624074561769746,
+     "colsample_bytree": 0.662397808134481,
+     "min_child_samples": 2,
+     "reg_alpha": 1.7323522915498704,
+     "reg_lambda": 1.8033450352296265,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.9272,
+    "mae": 763.6283,
+    "rmse": 887.2938,
+    "mape": 4.2062,
+    "cv_n": 24,
+    "params": {
+     "iterations": 231,
+     "depth": 5,
+     "learning_rate": 0.19725705440072067,
+     "l2_leaf_reg": 2.4383943816709097,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.9528,
+    "mae": 625.9379,
+    "rmse": 714.082,
+    "mape": 3.4015,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.9442,
+    "mae": 642.9522,
+    "rmse": 776.7522,
+    "mape": 3.5342,
+    "cv_n": 24,
+    "order": "(0, 1, 1)"
+   },
+   "SARIMA": {
+    "r2": 0.9396,
+    "mae": 650.7436,
+    "rmse": 807.9116,
+    "mape": 3.5266,
+    "cv_n": 24,
+    "order": "(0, 1, 1)",
+    "seasonal_order": "(0, 0, 1, 3)"
+   }
+  }
+ },
+ "energy_per_gdp": {
+  "en_iyi": "ARIMA",
+  "modeller": {
+   "RF": {
+    "r2": 0.6039,
+    "mae": 0.0349,
+    "rmse": 0.0435,
+    "mape": 3.6616,
+    "cv_n": 21,
+    "params": {
+     "n_estimators": 259,
+     "max_depth": 10,
+     "min_samples_leaf": 1,
+     "max_features": 0.7,
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.5886,
+    "mae": 0.0383,
+    "rmse": 0.0443,
+    "mape": 4.0109,
+    "cv_n": 21,
+    "params": {
+     "n_estimators": 171,
+     "max_depth": 3,
+     "learning_rate": 0.17468562539667415,
+     "subsample": 0.6680833174844744,
+     "colsample_bytree": 0.8318264197864259,
+     "reg_alpha": 0.004859633034782249,
+     "reg_lambda": 1.4349442643539614,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.6142,
+    "mae": 0.0345,
+    "rmse": 0.0429,
+    "mape": 3.6204,
+    "cv_n": 21,
+    "params": {
+     "n_estimators": 51,
+     "max_depth": 5,
+     "num_leaves": 15,
+     "learning_rate": 0.18263234744982962,
+     "subsample": 0.9958881457869249,
+     "colsample_bytree": 0.8810796931031994,
+     "min_child_samples": 4,
+     "reg_alpha": 0.02209312950992917,
+     "reg_lambda": 2.9967515813747547,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.4803,
+    "mae": 0.0423,
+    "rmse": 0.0498,
+    "mape": 4.4155,
+    "cv_n": 21,
+    "params": {
+     "iterations": 198,
+     "depth": 2,
+     "learning_rate": 0.061721159481070736,
+     "l2_leaf_reg": 1.8526206184364575,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.6669,
+    "mae": 0.033,
+    "rmse": 0.0399,
+    "mape": 3.4272,
+    "cv_n": 21,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.6725,
+    "mae": 0.0323,
+    "rmse": 0.0396,
+    "mape": 3.3885,
+    "cv_n": 21,
+    "order": "(0, 1, 1)"
+   },
+   "SARIMA": {
+    "r2": 0.6381,
+    "mae": 0.0327,
+    "rmse": 0.0416,
+    "mape": 3.4285,
+    "cv_n": 21,
+    "order": "(0, 1, 1)",
+    "seasonal_order": "(1, 0, 0, 2)"
+   }
+  }
+ },
+ "nuclear_share_elec": {
+  "en_iyi": "RF",
+  "modeller": {
+   "RF": {
+    "r2": 1.0,
+    "mae": 0.0,
+    "rmse": 0.0,
+    "mape": NaN,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 181,
+     "max_depth": 10,
+     "min_samples_leaf": 4,
+     "max_features": "sqrt",
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 1.0,
+    "mae": 0.0,
+    "rmse": 0.0,
+    "mape": NaN,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 144,
+     "max_depth": 5,
+     "learning_rate": 0.08960785365368121,
+     "subsample": 0.8394633936788146,
+     "colsample_bytree": 0.6624074561769746,
+     "reg_alpha": 0.3119890406724053,
+     "reg_lambda": 0.6452090304204987,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 1.0,
+    "mae": 0.0,
+    "rmse": 0.0,
+    "mape": NaN,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 144,
+     "max_depth": 6,
+     "num_leaves": 25,
+     "learning_rate": 0.060099747183803134,
+     "subsample": 0.6624074561769746,
+     "colsample_bytree": 0.662397808134481,
+     "min_child_samples": 2,
+     "reg_alpha": 1.7323522915498704,
+     "reg_lambda": 1.8033450352296265,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": NaN,
+    "mae": NaN,
+    "rmse": NaN,
+    "mape": NaN,
+    "cv_n": 0
+   },
+   "LSTM": {
+    "r2": 0.0,
+    "mae": 0.0,
+    "rmse": 0.0,
+    "mape": NaN,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.0,
+    "mae": 0.0,
+    "rmse": 0.0,
+    "mape": NaN,
+    "cv_n": 24,
+    "order": "(1, 0, 0)"
+   },
+   "SARIMA": {
+    "r2": 1.0,
+    "mae": 0.0,
+    "rmse": 0.0,
+    "mape": NaN,
+    "cv_n": 24,
+    "order": "(1, 0, 0)",
+    "seasonal_order": "(1, 0, 0, 2)"
+   }
+  }
+ },
+ "fossil_share_elec": {
+  "en_iyi": "ARIMA",
+  "modeller": {
+   "RF": {
+    "r2": 0.4694,
+    "mae": 5.0513,
+    "rmse": 6.0923,
+    "mape": 7.4379,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 124,
+     "max_depth": 8,
+     "min_samples_leaf": 1,
+     "max_features": "log2",
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.4181,
+    "mae": 5.2426,
+    "rmse": 6.3802,
+    "mape": 7.7984,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 198,
+     "max_depth": 2,
+     "learning_rate": 0.061721159481070736,
+     "subsample": 0.6682096494749166,
+     "colsample_bytree": 0.6260206371941118,
+     "reg_alpha": 1.8977710745066665,
+     "reg_lambda": 2.9140800826863984,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.4211,
+    "mae": 5.4121,
+    "rmse": 6.3637,
+    "mape": 8.0202,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 126,
+     "max_depth": 2,
+     "num_leaves": 24,
+     "learning_rate": 0.03738105868191797,
+     "subsample": 0.6488152939379115,
+     "colsample_bytree": 0.798070764044508,
+     "min_child_samples": 2,
+     "reg_alpha": 1.8186408041575641,
+     "reg_lambda": 0.7763399448000508,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.4581,
+    "mae": 5.0718,
+    "rmse": 6.1568,
+    "mape": 7.4777,
+    "cv_n": 24,
+    "params": {
+     "iterations": 203,
+     "depth": 2,
+     "learning_rate": 0.023993242906812727,
+     "l2_leaf_reg": 2.8318092164684585,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.4338,
+    "mae": 5.0278,
+    "rmse": 6.2933,
+    "mape": 7.4405,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.6111,
+    "mae": 4.1797,
+    "rmse": 5.2159,
+    "mape": 6.1781,
+    "cv_n": 24,
+    "order": "(1, 1, 0)"
+   },
+   "SARIMA": {
+    "r2": 0.4945,
+    "mae": 4.9298,
+    "rmse": 5.9464,
+    "mape": 7.2303,
+    "cv_n": 24,
+    "order": "(1, 1, 0)",
+    "seasonal_order": "(1, 0, 0, 3)"
+   }
+  }
+ },
+ "coal_co2": {
+  "en_iyi": "LSTM",
+  "modeller": {
+   "RF": {
+    "r2": 0.8819,
+    "mae": 8.9465,
+    "rmse": 11.3926,
+    "mape": 6.348,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 259,
+     "max_depth": 10,
+     "min_samples_leaf": 1,
+     "max_features": 0.7,
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.891,
+    "mae": 8.7086,
+    "rmse": 10.9415,
+    "mape": 6.1084,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 267,
+     "max_depth": 4,
+     "learning_rate": 0.08341106432362087,
+     "subsample": 0.608233797718321,
+     "colsample_bytree": 0.9879639408647978,
+     "reg_alpha": 1.6648852816008435,
+     "reg_lambda": 1.0308477766956905,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.8881,
+    "mae": 8.733,
+    "rmse": 11.0887,
+    "mape": 6.3584,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 256,
+     "max_depth": 5,
+     "num_leaves": 17,
+     "learning_rate": 0.12318395467875085,
+     "subsample": 0.9981926492013293,
+     "colsample_bytree": 0.9601556176358148,
+     "min_child_samples": 2,
+     "reg_alpha": 1.2996926180049702,
+     "reg_lambda": 2.0687614148564855,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.8439,
+    "mae": 10.8262,
+    "rmse": 13.0983,
+    "mape": 7.8112,
+    "cv_n": 24,
+    "params": {
+     "iterations": 270,
+     "depth": 3,
+     "learning_rate": 0.19413307725595672,
+     "l2_leaf_reg": 3.080157334586989,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.9263,
+    "mae": 6.4379,
+    "rmse": 8.9964,
+    "mape": 4.4373,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.9085,
+    "mae": 7.7668,
+    "rmse": 10.0244,
+    "mape": 5.5069,
+    "cv_n": 24,
+    "order": "(1, 1, 0)"
+   },
+   "SARIMA": {
+    "r2": 0.9012,
+    "mae": 8.1053,
+    "rmse": 10.4215,
+    "mape": 5.8245,
+    "cv_n": 24,
+    "order": "(1, 1, 0)",
+    "seasonal_order": "(1, 0, 0, 3)"
+   }
+  }
+ },
+ "gas_co2": {
+  "en_iyi": "SARIMA",
+  "modeller": {
+   "RF": {
+    "r2": 0.8125,
+    "mae": 7.8449,
+    "rmse": 9.8922,
+    "mape": 9.0111,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 259,
+     "max_depth": 10,
+     "min_samples_leaf": 1,
+     "max_features": 0.7,
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.778,
+    "mae": 8.4886,
+    "rmse": 10.7616,
+    "mape": 9.9372,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 210,
+     "max_depth": 3,
+     "learning_rate": 0.12404066871939626,
+     "subsample": 0.6987620077436466,
+     "colsample_bytree": 0.8269984610904911,
+     "reg_alpha": 0.054438052782393664,
+     "reg_lambda": 2.1663390982692974,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.8058,
+    "mae": 8.0068,
+    "rmse": 10.0666,
+    "mape": 9.146,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 262,
+     "max_depth": 4,
+     "num_leaves": 15,
+     "learning_rate": 0.13187078451547776,
+     "subsample": 0.7562092937156252,
+     "colsample_bytree": 0.9312726684051483,
+     "min_child_samples": 2,
+     "reg_alpha": 0.031020763988454325,
+     "reg_lambda": 1.1476474389284679,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.7768,
+    "mae": 8.4373,
+    "rmse": 10.7928,
+    "mape": 9.7187,
+    "cv_n": 24,
+    "params": {
+     "iterations": 291,
+     "depth": 3,
+     "learning_rate": 0.04121118495081278,
+     "l2_leaf_reg": 1.9335551092267007,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.8295,
+    "mae": 7.6671,
+    "rmse": 9.4314,
+    "mape": 8.9458,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.8296,
+    "mae": 7.4737,
+    "rmse": 9.4287,
+    "mape": 8.6664,
+    "cv_n": 24,
+    "order": "(1, 1, 1)"
+   },
+   "SARIMA": {
+    "r2": 0.8603,
+    "mae": 6.8577,
+    "rmse": 8.5368,
+    "mape": 8.2787,
+    "cv_n": 24,
+    "order": "(1, 1, 1)",
+    "seasonal_order": "(0, 0, 1, 3)"
+   }
+  }
+ },
+ "co2_per_capita": {
+  "en_iyi": "LSTM",
+  "modeller": {
+   "RF": {
+    "r2": 0.8351,
+    "mae": 0.2308,
+    "rmse": 0.2656,
+    "mape": 4.9168,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 135,
+     "max_depth": 9,
+     "min_samples_leaf": 1,
+     "max_features": 0.7,
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.8183,
+    "mae": 0.2296,
+    "rmse": 0.2788,
+    "mape": 4.7969,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 136,
+     "max_depth": 4,
+     "learning_rate": 0.15911503881506636,
+     "subsample": 0.7390533721986331,
+     "colsample_bytree": 0.8414913585362888,
+     "reg_alpha": 0.0061957555026071484,
+     "reg_lambda": 1.0678475291271967,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.8647,
+    "mae": 0.2047,
+    "rmse": 0.2406,
+    "mape": 4.3268,
+    "cv_n": 24,
+    "params": {
+     "n_estimators": 300,
+     "max_depth": 5,
+     "num_leaves": 28,
+     "learning_rate": 0.19961837193620582,
+     "subsample": 0.9943295733240962,
+     "colsample_bytree": 0.728131760785334,
+     "min_child_samples": 4,
+     "reg_alpha": 0.053995683014581713,
+     "reg_lambda": 2.9890117782106502,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.7922,
+    "mae": 0.2636,
+    "rmse": 0.2982,
+    "mape": 5.5782,
+    "cv_n": 24,
+    "params": {
+     "iterations": 243,
+     "depth": 4,
+     "learning_rate": 0.10746107006215319,
+     "l2_leaf_reg": 4.223972680035053,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.8948,
+    "mae": 0.1729,
+    "rmse": 0.2122,
+    "mape": 3.6491,
+    "cv_n": 24,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.8754,
+    "mae": 0.1952,
+    "rmse": 0.2309,
+    "mape": 4.1459,
+    "cv_n": 24,
+    "order": "(1, 1, 0)"
+   },
+   "SARIMA": {
+    "r2": 0.8638,
+    "mae": 0.208,
+    "rmse": 0.2414,
+    "mape": 4.4432,
+    "cv_n": 24,
+    "order": "(1, 1, 0)",
+    "seasonal_order": "(0, 0, 1, 3)"
+   }
+  }
+ },
+ "temperature_change_from_ghg": {
+  "en_iyi": "XGBoost",
+  "modeller": {
+   "RF": {
+    "r2": 0.6422,
+    "mae": 0.0005,
+    "rmse": 0.0006,
+    "mape": 5.6682,
+    "cv_n": 12,
+    "params": {
+     "n_estimators": 259,
+     "max_depth": 10,
+     "min_samples_leaf": 1,
+     "max_features": 0.7,
+     "random_state": 42,
+     "n_jobs": -1
+    }
+   },
+   "XGBoost": {
+    "r2": 0.813,
+    "mae": 0.0004,
+    "rmse": 0.0004,
+    "mape": 3.89,
+    "cv_n": 12,
+    "params": {
+     "n_estimators": 144,
+     "max_depth": 5,
+     "learning_rate": 0.08960785365368121,
+     "subsample": 0.8394633936788146,
+     "colsample_bytree": 0.6624074561769746,
+     "reg_alpha": 0.3119890406724053,
+     "reg_lambda": 0.6452090304204987,
+     "random_state": 42,
+     "verbosity": 0
+    }
+   },
+   "LightGBM": {
+    "r2": 0.813,
+    "mae": 0.0004,
+    "rmse": 0.0004,
+    "mape": 3.89,
+    "cv_n": 12,
+    "params": {
+     "n_estimators": 144,
+     "max_depth": 6,
+     "num_leaves": 25,
+     "learning_rate": 0.060099747183803134,
+     "subsample": 0.6624074561769746,
+     "colsample_bytree": 0.662397808134481,
+     "min_child_samples": 2,
+     "reg_alpha": 1.7323522915498704,
+     "reg_lambda": 1.8033450352296265,
+     "random_state": 42,
+     "n_jobs": -1,
+     "verbosity": -1
+    }
+   },
+   "CatBoost": {
+    "r2": 0.4583,
+    "mae": 0.0006,
+    "rmse": 0.0008,
+    "mape": 6.077,
+    "cv_n": 12,
+    "params": {
+     "iterations": 248,
+     "depth": 4,
+     "learning_rate": 0.19679621881723522,
+     "l2_leaf_reg": 2.0000031842383486,
+     "random_state": 42,
+     "verbose": 0,
+     "allow_writing_files": false
+    }
+   },
+   "LSTM": {
+    "r2": 0.7353,
+    "mae": 0.0004,
+    "rmse": 0.0005,
+    "mape": 4.5338,
+    "cv_n": 12,
+    "params": {
+     "units1": 64,
+     "units2": 32,
+     "dropout": 0.2,
+     "lr": 0.001,
+     "batch": 4
+    }
+   },
+   "ARIMA": {
+    "r2": 0.6729,
+    "mae": 0.0004,
+    "rmse": 0.0006,
+    "mape": 4.0954,
+    "cv_n": 12,
+    "order": "(1, 0, 0)"
+   },
+   "SARIMA": {
+    "r2": 0.7824,
+    "mae": 0.0004,
+    "rmse": 0.0005,
+    "mape": 4.1145,
+    "cv_n": 12,
+    "order": "(1, 0, 0)",
+    "seasonal_order": "(0, 0, 1, 2)"
+   }
+  }
+ }
+}

@@ -1,0 +1,132 @@
+{
+ "hedef": "co2",
+ "birim": "Mt CO2",
+ "en_iyi": "LSTM",
+ "input_cols": [
+  "co2_lag1",
+  "co2_lag2",
+  "electricity_demand",
+  "Population",
+  "GDP_Per_Capita",
+  "GDP_Growth",
+  "renewables_share_elec",
+  "Urbanization_Rate",
+  "Industry_Value_Added_Pct_GDP",
+  "Population_Density",
+  "fossil_fuel_consumption",
+  "nuclear_consumption",
+  "primary_energy_consumption",
+  "energy_per_capita",
+  "energy_per_gdp",
+  "nuclear_share_elec",
+  "fossil_share_elec",
+  "temperature_change_from_ghg"
+ ],
+ "n_obs": 22,
+ "min_train": 10,
+ "fark_al": true,
+ "elektrik_kaynagi": "EN_IYI_TWh",
+ "modeller": {
+  "RF": {
+   "r2": 0.6124,
+   "mae": 20.2941,
+   "rmse": 24.4111,
+   "mape": 4.7682,
+   "cv_n": 12,
+   "params": {
+    "n_estimators": 162,
+    "max_depth": 7,
+    "min_samples_leaf": 1,
+    "max_features": 0.7,
+    "random_state": 42,
+    "n_jobs": -1
+   }
+  },
+  "XGBoost": {
+   "r2": 0.6134,
+   "mae": 19.4783,
+   "rmse": 24.3785,
+   "mape": 4.5737,
+   "cv_n": 12,
+   "params": {
+    "n_estimators": 232,
+    "max_depth": 4,
+    "learning_rate": 0.14505005915430802,
+    "subsample": 0.9933883225797824,
+    "colsample_bytree": 0.8084362212223045,
+    "reg_alpha": 0.7589211243627074,
+    "reg_lambda": 1.0034090523072072,
+    "random_state": 42,
+    "verbosity": 0
+   }
+  },
+  "LightGBM": {
+   "r2": 0.4753,
+   "mae": 22.6399,
+   "rmse": 28.4018,
+   "mape": 5.2792,
+   "cv_n": 12,
+   "params": {
+    "n_estimators": 239,
+    "max_depth": 4,
+    "num_leaves": 14,
+    "learning_rate": 0.07836720132882365,
+    "subsample": 0.7704485658122585,
+    "colsample_bytree": 0.8604035330355404,
+    "min_child_samples": 3,
+    "reg_alpha": 0.06143923733630445,
+    "reg_lambda": 0.0956115105779656,
+    "random_state": 42,
+    "n_jobs": -1,
+    "verbosity": -1
+   }
+  },
+  "CatBoost": {
+   "r2": 0.4605,
+   "mae": 23.8587,
+   "rmse": 28.7981,
+   "mape": 5.6032,
+   "cv_n": 12,
+   "params": {
+    "iterations": 236,
+    "depth": 2,
+    "learning_rate": 0.04436243199225383,
+    "l2_leaf_reg": 1.0191164689717116,
+    "random_state": 42,
+    "verbose": 0,
+    "allow_writing_files": false
+   }
+  },
+  "LSTM": {
+   "r2": 0.6615,
+   "mae": 19.4663,
+   "rmse": 22.8127,
+   "mape": 4.6023,
+   "cv_n": 12,
+   "params": {
+    "units1": 64,
+    "units2": 16,
+    "dropout": 0.19127267288786132,
+    "lr": 0.0011207606211860567,
+    "batch": 4
+   }
+  },
+  "ARIMA": {
+   "r2": 0.6334,
+   "mae": 18.7355,
+   "rmse": 23.7406,
+   "mape": 4.3704,
+   "cv_n": 12,
+   "order": "(1, 1, 1)"
+  },
+  "SARIMA": {
+   "r2": 0.555,
+   "mae": 23.4074,
+   "rmse": 26.1551,
+   "mape": 5.5183,
+   "cv_n": 12,
+   "order": "(1, 1, 1)",
+   "seasonal_order": "(0, 0, 1, 3)"
+  }
+ }
+}
