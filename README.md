@@ -3,7 +3,8 @@
 # Makine Öğrenmesi ile Elektrik Tüketimi Tahmini ve Karbon Ayak İzi Analizi
 
 **Üç aşamalı bir tahmin hattı, yedi model, tek soru:**<br/>
-Türkiye 2030'da ne kadar elektrik tüketecek ve bunun karbon karşılığı ne olacak?
+Türkiye 2030'da ne kadar elektrik tüketecek ve bunun karbon karşılığı ne olacak??
+
 
 <br/>
 
